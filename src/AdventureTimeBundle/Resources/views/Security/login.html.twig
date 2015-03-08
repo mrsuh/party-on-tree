@@ -2,7 +2,7 @@
 {% block content %}
     <form action="{{ url('login_check') }}" method="POST">
 
-        <input type="text" id="username" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_NAME') }},"
+        <input type="text" id="username" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_NAME') }}"
                value="{{ last_username }}" placeholder="email" required="true"/>
 
         <input type="password" id="password" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_PASS') }}"

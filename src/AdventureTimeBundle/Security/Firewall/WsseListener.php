@@ -34,16 +34,10 @@ class WsseListener implements ListenerInterface
         try {
             $authToken = $this->authenticationManager->authenticate($token);
             $this->tokenStorage->setToken($authToken);
-
             return;
 
         } catch (AuthenticationException $failed) {
-
-            $token = $this->tokenStorage->getToken();
-            if ($token instanceof WsseToken && $this->providerKey === $token->getProviderKey()) {
-                $this->tokenStorage->setToken(null);
-            }
-
+            $this->tokenStorage->setToken(null);
             return;
         }
 

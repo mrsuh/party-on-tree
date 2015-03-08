@@ -6,12 +6,19 @@ use Symfony\Component\Security\Core\Security;
 use AdventureTimeBundle\Constants;
 use AdventureTimeBundle\Form\Security\RegistrationForm;
 use AdventureTimeBundle\Form\Security\RememberPassForm;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class SecurityController extends Controller
 {
     public function loginAction(Request $request)
     {
-        if ($request->attributes->has(Security::AUTHENTICATION_ERROR) || $this->get('session')->get(Security::AUTHENTICATION_ERROR)) {
+        if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_ADMIN)) {
+            return $this->redirect($this->generateUrl('admin'));
+        } else if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_USER)) {
+            return $this->redirect($this->generateUrl('user'));
+        }
+        
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR) || $this->get('session')->get(SecurityContext::AUTHENTICATION_ERROR)) {
             $authenticationUtils = $this->get('security.authentication_utils');
             $lastUsername = $authenticationUtils->getLastUsername();
             $this->get('session')->remove(Security::AUTHENTICATION_ERROR);
@@ -19,16 +26,8 @@ class SecurityController extends Controller
             return $this->render('AdventureTimeBundle:Security:login.html.twig', array('last_username' => $lastUsername, 'error' => true,));
 
         } else {
-
-            if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_ADMIN)) {
-                return $this->redirect($this->generateUrl('admin'));
-            } else if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_USER)) {
-                return $this->redirect($this->generateUrl('user'));
-            }
-
             return $this->render('AdventureTimeBundle:Security:login.html.twig', array('last_username' => null, 'error' => false,));
         }
-
     }
 
     public function registrationAction(Request $request)
