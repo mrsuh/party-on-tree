@@ -1,0 +1,7 @@
+{% extends "AdventureTimeBundle::layout.html.twig" %}
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_widget(form.username) }}
+    {{ form_widget(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}

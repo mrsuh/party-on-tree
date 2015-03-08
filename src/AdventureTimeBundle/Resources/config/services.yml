@@ -1,0 +1,18 @@
+services:
+    model.user:
+        class: AdventureTimeBundle\Model\UserModel
+        arguments: [@doctrine.orm.entity_manager]
+    model.security:
+        class: AdventureTimeBundle\Model\SecurityModel
+        arguments: ["@security.context", @doctrine.orm.entity_manager ,@model.user, @model.mail]
+    model.mail:
+        class: AdventureTimeBundle\Model\MailModel
+        arguments: [@mailer, %mailer_user%]
+
+    wsse.security.authentication.provider:
+        class: AdventureTimeBundle\Security\Authentication\Provider\WsseProvider
+        arguments: ["", "%kernel.cache_dir%/security/nonces"]
+
+    wsse.security.authentication.listener:
+        class: AdventureTimeBundle\Security\Firewall\WsseListener
+        arguments: ["@security.context", "@security.authentication.manager"]

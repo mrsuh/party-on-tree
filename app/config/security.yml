@@ -1,0 +1,39 @@
+security:
+    encoders:
+        AdventureTimeBundle\Entity\User:
+            algorithm: sha512
+            encode-as-base64: true
+            iterations: 10
+    role_hierarchy:
+           ROLE_ADMIN:       ROLE_USER
+           ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        main:
+            entity:
+                class: AdventureTimeBundle\Entity\User
+                property: username
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        secured_area:
+            pattern:  ^/
+            form_login:
+                check_path: login_check
+                login_path: login
+            logout:
+                path: logout
+#                target: user
+            anonymous: ~
+            wsse: true
+#
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/remember-pass, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/ajax-registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/, roles: ROLE_USER }

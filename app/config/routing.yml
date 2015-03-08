@@ -1,0 +1,4 @@
+adventure_time:
+    resource: "@AdventureTimeBundle/Resources/config/routing.yml"
+    prefix:   /
+

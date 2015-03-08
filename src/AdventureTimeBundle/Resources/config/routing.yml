@@ -1,0 +1,41 @@
+login_check:
+    path: /login-check
+
+logout:
+    path: /logout
+
+login:
+    path: /login
+    defaults: { _controller: AdventureTimeBundle:Security:login }
+
+registration:
+    path: /registration
+    defaults: { _controller: AdventureTimeBundle:Security:registration }
+
+remember_pass:
+    path: /remember-pass
+    defaults: { _controller: AdventureTimeBundle:Security:rememberPass }
+
+
+
+#ajax
+ajax_registration:
+    path: /ajax-registration
+    defaults: { _controller: AdventureTimeBundle:Security:ajaxRegistration }
+
+
+
+index:
+    path: /index
+    defaults: { _controller: AdventureTimeBundle:Default:index }
+user:
+    path: /user
+    defaults: { _controller: AdventureTimeBundle:Default:user }
+admin:
+    path: /admin
+    defaults: { _controller: AdventureTimeBundle:Default:admin }
+
+default:
+    path: /
+    defaults: { _controller: AdventureTimeBundle:Default:default }
+
