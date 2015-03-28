@@ -24,6 +24,7 @@ class UserModel
 
         $user = new User();
         $user->setUsername($data['username']);
+        $user->setEmail($data['email']);
         $user->setSalt(md5(time()));
 
         $encoder = new MessageDigestPasswordEncoder('sha512', true, 10);

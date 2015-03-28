@@ -11,7 +11,7 @@ class SecurityController extends Controller
 {
     public function loginAction(Request $request)
     {
-        if ($request->attributes->has(Security::AUTHENTICATION_ERROR) || $this->get('session')->get(Security::AUTHENTICATION_ERROR)) {
+        if ($request->attributes->has(Security::AUTHENTICATION_ERROR)) {
             $authenticationUtils = $this->get('security.authentication_utils');
             $lastUsername = $authenticationUtils->getLastUsername();
             $this->get('session')->remove(Security::AUTHENTICATION_ERROR);
@@ -40,9 +40,7 @@ class SecurityController extends Controller
             $formData = $form->getData();
             $formData['role'] = Constants::ROLE_USER;
             if ($this->get('model.security')->registration($formData)) {
-                $username = $formData['username'];
-                $password = $formData['password'];
-                $data = array('subject' => 'Registration', 'mail' => $formData['username'], 'body' => $this->renderView('AdventureTimeBundle:Mail:registration.html.twig', array('username' => $username, 'pass' => $password)),);
+                $data = array('subject' => 'Registration', 'mail' => $formData['email'], 'body' => $this->renderView('AdventureTimeBundle:Mail:registration.html.twig', array('username' => $formData['username'], 'pass' => $formData['password'])),);
                 $this->get('model.mail')->sendMail($data);
 
                 return $this->redirect($this->generateUrl('user'));

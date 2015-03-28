@@ -20,6 +20,7 @@ class LoadUser implements FixtureInterface
         // создание пользователя
         $user = new User();
         $user->setUsername('user');
+        $user->setEmail('user@mail.ru');
         $user->setSalt(md5(time()));
 
         // шифрует и устанавливает пароль для пользователя,
@@ -41,6 +42,7 @@ class LoadUser implements FixtureInterface
         // создание пользователя
         $user = new User();
         $user->setUsername('admin');
+        $user->setEmail('admin@mail.ru');
         $user->setSalt(md5(time()));
 
         // шифрует и устанавливает пароль для пользователя,

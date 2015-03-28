@@ -1,15 +1,22 @@
 {% extends "AdventureTimeBundle:Security:layout.html.twig" %}
 {% block content %}
     <form action="{{ url('login_check') }}" method="POST">
-
-        <input type="text" id="username" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_NAME') }},"
-               value="{{ last_username }}" placeholder="email" required="true"/>
-
-        <input type="password" id="password" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_PASS') }}"
-               placeholder="password" required="true"/>
-        <input type="submit" name="login" value="Войти"/>
-        {% if error == 'true' %}
-            неверный логин или пароль
-        {% endif %}
+        <div class="row login-form">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <h1>Welcome to party on tree</h1>
+                <div class="form-group">
+                    <label for="username">username</label>
+                    <input type="text" class="form-control" id="username" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_NAME') }}" value="{{ last_username }}" placeholder="email" required="true"/>
+                    <label for="username">password</label>
+                    <input type="password" class="form-control" id="password" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_PASS') }}" placeholder="password" required="true"/>
+                    <input type="submit" class="btn btn-success access" name="login" value="Enter"/>
+                    {% if error == 'true' %}
+                        неверный логин или пароль
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
     </form>
 {% endblock %}

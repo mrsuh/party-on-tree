@@ -22,7 +22,6 @@ class WsseProvider implements AuthenticationProviderInterface
     public function authenticate(TokenInterface $token)
     {
         $user = $this->userProvider->loadUserByUsername($token->getUsername());
-
         $encoder = new MessageDigestPasswordEncoder('sha512', true, 10);
         if ($encoder->isPasswordValid($user->getPassword(), $token->pass, $user->getSalt())) {
             $authenticatedToken = new WsseToken(array($user->getRoles()->getName()));

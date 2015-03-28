@@ -1,5 +1,39 @@
 {% extends "AdventureTimeBundle::layout.html.twig" %}
 {% block content %}
-    Hello USER!
-    <a href="{{ url('logout') }}">logout</a>
+      Hello USER!
+    <!-- Button trigger modal -->
+    <button type="button" class="btn " data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Who you are in 'Adventure Time'?</h4>
+                </div>
+                <div class="modal-body">
+                <div class="question"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="next">Next question</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+
+        $('#next').on('click', function(){
+            $('.modal-body').hide();
+            $('.modal-body').html('next question');
+            $('.modal-body').show('slow');
+        })
+
+</script>
 {% endblock %}
