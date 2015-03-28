@@ -1,0 +1,173 @@
+characters:
+    1:
+        name: Finn
+        mind: 9
+        kindness: 18
+        brave: 20
+        culture: 10
+        sex: male
+    2:
+        name: Jake
+        mind: 10
+        kindness: 18
+        brave: 20
+        culture: 9
+        sex: male
+    3:
+        name: Princess Booblegum
+        mind: 20
+        kindness: 15
+        brave: 15
+        culture: 20
+        sex: female
+    4:
+        name: Ice King
+        mind: 4
+        kindness: 5
+        brave: 1
+        culture: 5
+        sex: male
+    5:
+        name: Lady Raincorn
+        mind: 10
+        kindness: 15
+        brave: 15
+        culture: 20
+        sex: female
+    6:
+        name: Marceline
+        mind: 16
+        kindness: 10
+        brave: 17
+        culture: 12
+        sex: female
+    7:
+        name: Lumpy Space Princess
+        mind: 5
+        kindness: 9
+        brave: 0
+        culture: 6
+        sex: female
+    8:
+        name: BMO
+        mind: 14
+        kindness: 18
+        brave: 9
+        culture: 16
+        sex: male
+    9:
+        name: Gunter
+        mind: 5
+        kindness: 6
+        brave: 6
+        culture: 4
+        sex: male
+    10:
+        name: Earl Of Lemongrab
+        mind: 4
+        kindness: 3
+        brave: 10
+        culture: 5
+        sex: male
+    11:
+        name: Flame Princess
+        mind: 12
+        kindness: 11
+        brave: 18
+        culture: 12
+        sex: female
+
+    12:
+        name: Pappermit Butler
+        mind: 15
+        kindness: 10
+        brave: 15
+        culture: 19
+        sex: male
+    13:
+        name: Lich
+        mind: 16
+        kindness: 0
+        brave: 0
+        culture: 0
+        sex: male
+    14:
+        name: Flambo
+        mind: 12
+        kindness: 15
+        brave: 13
+        culture: 10
+        sex: male
+    15:
+        name: Hunson Abadeer
+        mind: 12
+        kindness: 1
+        brave: 2
+        culture: 5
+        sex: male
+    16:
+        name: Cinnamon Bun
+        mind: 0
+        kindness: 10
+        brave: 11
+        culture: 2
+        sex: male
+
+    17:
+        name: Party God
+        mind: 8
+        kindness: 8
+        brave: 8
+        culture: 6
+        sex: male
+    18:
+        name: Ghost Princess
+        mind: 6
+        kindness: 17
+        brave: 4
+        culture: 18
+        sex: female
+    19:
+        name: Party Pat
+        mind: 7
+        kindness: 14
+        brave: 9
+        culture: 6
+        sex: male
+
+    20:
+        name: Lollypop Girl
+        mind: 9
+        kindness: 13
+        brave: 4
+        culture: 12
+        sex: female
+    21:
+        name: Prismo
+        mind: 20
+        kindness: 11
+        brave: 11
+        culture: 17
+        sex: male
+    22:
+        name: Billy
+        mind: 14
+        kindness: 20
+        brave: 20
+        culture: 12
+        sex: male
+
+    23:
+        name: Cosmic Owl
+        mind: 16
+        kindness: 10
+        brave: 10
+        culture: 10
+        sex: female
+    24:
+        name: Starchy
+        mind: 0
+        kindness: 14
+        brave: 5
+        culture: 3
+        sex: male
