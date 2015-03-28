@@ -27,17 +27,49 @@ class Personage
     private $name;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="colour", type="string", length=255)
+     * @ORM\Column(name="mind", type="integer")
      */
-    private $colour;
-
+    private $mind;
 
     /**
-     * Get id
+     * @var integer
      *
-     * @return integer
+     * @ORM\Column(name="kindness", type="integer")
+     */
+    private $kindness;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="brave", type="integer")
+     */
+    private $brave;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="culture", type="integer")
+     */
+    private $culture;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sex", type="string", length=255)
+     */
+    private $sex;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isBlocked", type="boolean")
+     */
+    private $isBlocked;
+
+    /**
+     * @return int
      */
     public function getId()
     {
@@ -45,10 +77,23 @@ class Personage
     }
 
     /**
-     * Set name
-     *
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * @param string $name
-     * @return Personage
      */
     public function setName($name)
     {
@@ -58,35 +103,112 @@ class Personage
     }
 
     /**
-     * Get name
-     *
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getMind()
     {
-        return $this->name;
+        return $this->mind;
     }
 
     /**
-     * Set colour
-     *
-     * @param string $colour
-     * @return Personage
+     * @param int $mind
      */
-    public function setColour($colour)
+    public function setMind($mind)
     {
-        $this->colour = $colour;
+        $this->mind = $mind;
 
         return $this;
     }
 
     /**
-     * Get colour
-     *
+     * @return int
+     */
+    public function getKindness()
+    {
+        return $this->kindness;
+    }
+
+    /**
+     * @param int $kindness
+     */
+    public function setKindness($kindness)
+    {
+        $this->kindness = $kindness;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBrave()
+    {
+        return $this->brave;
+    }
+
+    /**
+     * @param int $brave
+     */
+    public function setBrave($brave)
+    {
+        $this->brave = $brave;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCulture()
+    {
+        return $this->culture;
+    }
+
+    /**
+     * @param int $culture
+     */
+    public function setCulture($culture)
+    {
+        $this->culture = $culture;
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
-    public function getColour()
+    public function getSex()
     {
-        return $this->colour;
+        return $this->sex;
     }
+
+    /**
+     * @param string $sex
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isIsBlocked()
+    {
+        return $this->isBlocked;
+    }
+
+    /**
+     * @param boolean $isBlocked
+     */
+    public function setIsBlocked($isBlocked)
+    {
+        $this->isBlocked = $isBlocked;
+
+        return $this;
+    }
+
+
 }

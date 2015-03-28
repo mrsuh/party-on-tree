@@ -1,0 +1,23 @@
+parameters:
+    questions:
+        1:
+            question: Любимый цвет
+            answer:
+                1: красный
+                2: синий
+                3: зеленый
+                4: черный
+            params:
+                mind: 1
+                kindness: 18
+                brave: 20
+                culture: 10
+        2:
+            question: Любимый цвет2
+            mind: 2
+            answer:
+                1: красный
+                2: синий
+                3: зеленый
+                4: черный
+

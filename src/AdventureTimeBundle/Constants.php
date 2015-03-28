@@ -24,4 +24,8 @@ class Constants
 
     const PASSWORD_LENGTH = 8;
 
+    //пол персонажей
+    const SEX_MALE = 'male';
+    const SEX_FEMALE = 'female';
+
 }

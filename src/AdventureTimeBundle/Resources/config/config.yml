@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@AdventureTimeBundle/Resources/config/characters.yml" }

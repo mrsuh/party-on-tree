@@ -62,8 +62,11 @@ class LoadUser implements FixtureInterface
 
         $manager->persist($code);
         $manager->flush();
+    }
 
-
+    public function getOrder()
+    {
+        return 1;
     }
 
 }
