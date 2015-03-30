@@ -56,6 +56,14 @@ class User implements UserInterface, \Serializable
      */
     private $role;
 
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="\AdventureTimeBundle\Entity\Personage")
+     * @ORM\JoinColumn(name="personage", referencedColumnName="id")
+     */
+    private $personage;
+
 
     /**
      * Get id
@@ -171,6 +179,22 @@ class User implements UserInterface, \Serializable
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPersonage()
+    {
+        return $this->personage;
+    }
+
+    /**
+     * @param string $personage
+     */
+    public function setPersonage($personage)
+    {
+        $this->personage = $personage;
     }
 
     public function serialize()

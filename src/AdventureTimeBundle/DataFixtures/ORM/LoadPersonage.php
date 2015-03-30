@@ -23,12 +23,9 @@ class LoadPersonage extends AbstractFixture implements FixtureInterface, Ordered
             $personage = new Personage();
             $personage
                 ->setName($data['name'])
-                ->setMind($data['mind'])
-                ->setKindness($data['kindness'])
-                ->setCulture($data['culture'])
-                ->setBrave($data['brave'])
                 ->setSex($data['sex'])
-                ->setIsBlocked(false)
+                ->setNameRussian($data['name_ru'])
+                ->setActive(false)
             ;
             $manager->persist($personage);
         }

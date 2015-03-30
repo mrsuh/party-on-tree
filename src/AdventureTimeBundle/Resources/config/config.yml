@@ -1,2 +1,3 @@
 imports:
     - { resource: "@AdventureTimeBundle/Resources/config/characters.yml" }
+    - { resource: "@AdventureTimeBundle/Resources/config/questions.yml" }

@@ -36,34 +36,6 @@ class Answer
      */
     private $name;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="mind", type="integer", nullable=true)
-     */
-    private $mind;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="kindness", type="integer", nullable=true)
-     */
-    private $kindness;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="brave", type="integer", nullable=true)
-     */
-    private $brave;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="culture", type="integer", nullable=true)
-     */
-    private $culture;
-
 
     /**
      * Get id
@@ -73,6 +45,29 @@ class Answer
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set question
+     *
+     * @param string $question
+     * @return Answer
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Get question
+     *
+     * @return string 
+     */
+    public function getQuestion()
+    {
+        return $this->question;
     }
 
     /**
@@ -96,113 +91,5 @@ class Answer
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set mind
-     *
-     * @param integer $mind
-     * @return Answer
-     */
-    public function setMind($mind)
-    {
-        $this->mind = $mind;
-
-        return $this;
-    }
-
-    /**
-     * Get mind
-     *
-     * @return integer 
-     */
-    public function getMind()
-    {
-        return $this->mind;
-    }
-
-    /**
-     * Set kindness
-     *
-     * @param integer $kindness
-     * @return Answer
-     */
-    public function setKindness($kindness)
-    {
-        $this->kindness = $kindness;
-
-        return $this;
-    }
-
-    /**
-     * Get kindness
-     *
-     * @return integer 
-     */
-    public function getKindness()
-    {
-        return $this->kindness;
-    }
-
-    /**
-     * Set brave
-     *
-     * @param integer $brave
-     * @return Answer
-     */
-    public function setBrave($brave)
-    {
-        $this->brave = $brave;
-
-        return $this;
-    }
-
-    /**
-     * Get brave
-     *
-     * @return integer 
-     */
-    public function getBrave()
-    {
-        return $this->brave;
-    }
-
-    /**
-     * Set culture
-     *
-     * @param integer $culture
-     * @return Answer
-     */
-    public function setCulture($culture)
-    {
-        $this->culture = $culture;
-
-        return $this;
-    }
-
-    /**
-     * Get culture
-     *
-     * @return integer 
-     */
-    public function getCulture()
-    {
-        return $this->culture;
-    }
-
-    /**
-     * @return string
-     */
-    public function getQuestion()
-    {
-        return $this->question;
-    }
-
-    /**
-     * @param string $question
-     */
-    public function setQuestion($question)
-    {
-        $this->question = $question;
     }
 }

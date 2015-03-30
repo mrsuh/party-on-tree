@@ -35,5 +35,26 @@
             $('.modal-body').show('slow');
         })
 
+
+        function getQuestions()
+        {
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: "{{ url('ajax_get_questions') }}"
+            }).done(function (data) {
+                console.log(data);
+                var answer = Array();
+                for (var question in data) {
+                    for(var id in data[question]) {
+                        console.log(data[question][id]);
+                        $('.modal-body').show('slow');
+                    }
+                }
+
+            });
+        }
+
+
 </script>
 {% endblock %}

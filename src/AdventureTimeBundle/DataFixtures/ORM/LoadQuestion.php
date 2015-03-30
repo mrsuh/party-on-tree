@@ -8,6 +8,7 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use AdventureTimeBundle\Entity\Answer;
 use AdventureTimeBundle\Entity\Question;
+use AdventureTimeBundle\Entity\Conformity;
 
 class LoadQuestion extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -21,23 +22,25 @@ class LoadQuestion extends AbstractFixture implements FixtureInterface, OrderedF
     public function load(ObjectManager $manager)
     {
 
-        $question = new Question();
-        $question->setName('Question');
-        $manager->persist($question);
-
-        $answer = new Answer();
-        $answer->setName('question');
-        $answer->setMind(1);
-        $answer->setQuestion($question);
-        $manager->persist($answer);
-
-
-        $manager->flush();
-
-        foreach ($this->container->getParameter('questions') as $id => $data) {
+        foreach ($this->container->getParameter('questions') as $q) {
             $question = new Question();
-            $question->setName('Question');
-            $manager->persist($data['name']);
+            $question->setName($q['question']);
+            $manager->persist($question);
+
+            foreach($q['answer'] as $a) {
+                $answer = new Answer();
+                $answer->setName($a['name']);
+                $answer->setQuestion($question);
+                $manager->persist($answer);
+
+                foreach($a['personage'] as $p) {
+                    $personage = $manager->getRepository('AdventureTimeBundle:Personage')->findOneByName($p);
+                    $confirmity = new Conformity();
+                    $confirmity->setAnswer($answer);
+                    $confirmity->setPersonage($personage);
+                    $manager->persist($confirmity);
+                }
+            }
 
         }
         $manager->flush();

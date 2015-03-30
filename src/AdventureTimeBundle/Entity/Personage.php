@@ -1,4 +1,6 @@
-<?php namespace AdventureTimeBundle\Entity;
+<?php
+
+namespace AdventureTimeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -27,32 +29,11 @@ class Personage
     private $name;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="mind", type="integer")
+     * @ORM\Column(name="nameRussian", type="string", length=255)
      */
-    private $mind;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="kindness", type="integer")
-     */
-    private $kindness;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="brave", type="integer")
-     */
-    private $brave;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="culture", type="integer")
-     */
-    private $culture;
+    private $nameRussian;
 
     /**
      * @var string
@@ -64,12 +45,15 @@ class Personage
     /**
      * @var boolean
      *
-     * @ORM\Column(name="isBlocked", type="boolean")
+     * @ORM\Column(name="active", type="boolean")
      */
-    private $isBlocked;
+    private $active;
+
 
     /**
-     * @return int
+     * Get id
+     *
+     * @return integer 
      */
     public function getId()
     {
@@ -77,23 +61,10 @@ class Personage
     }
 
     /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
+     * Set name
+     *
      * @param string $name
+     * @return Personage
      */
     public function setName($name)
     {
@@ -103,75 +74,59 @@ class Personage
     }
 
     /**
-     * @return int
+     * Get name
+     *
+     * @return string 
      */
-    public function getMind()
+    public function getName()
     {
-        return $this->mind;
+        return $this->name;
     }
 
     /**
-     * @param int $mind
+     * Set nameRussian
+     *
+     * @param string $nameRussian
+     * @return Personage
      */
-    public function setMind($mind)
+    public function setNameRussian($nameRussian)
     {
-        $this->mind = $mind;
+        $this->nameRussian = $nameRussian;
 
         return $this;
     }
 
     /**
-     * @return int
+     * Get nameRussian
+     *
+     * @return string 
      */
-    public function getKindness()
+    public function getNameRussian()
     {
-        return $this->kindness;
+        return $this->nameRussian;
     }
 
     /**
-     * @param int $kindness
+     * Set active
+     *
+     * @param boolean $active
+     * @return Personage
      */
-    public function setKindness($kindness)
+    public function setActive($active)
     {
-        $this->kindness = $kindness;
+        $this->active = $active;
 
         return $this;
     }
 
     /**
-     * @return int
+     * Get active
+     *
+     * @return boolean 
      */
-    public function getBrave()
+    public function getActive()
     {
-        return $this->brave;
-    }
-
-    /**
-     * @param int $brave
-     */
-    public function setBrave($brave)
-    {
-        $this->brave = $brave;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCulture()
-    {
-        return $this->culture;
-    }
-
-    /**
-     * @param int $culture
-     */
-    public function setCulture($culture)
-    {
-        $this->culture = $culture;
-
-        return $this;
+        return $this->active;
     }
 
     /**
@@ -191,24 +146,4 @@ class Personage
 
         return $this;
     }
-
-    /**
-     * @return boolean
-     */
-    public function isIsBlocked()
-    {
-        return $this->isBlocked;
-    }
-
-    /**
-     * @param boolean $isBlocked
-     */
-    public function setIsBlocked($isBlocked)
-    {
-        $this->isBlocked = $isBlocked;
-
-        return $this;
-    }
-
-
 }

@@ -28,8 +28,11 @@ class Question
      */
     private $name;
 
+
     /**
-     * @return int
+     * Get id
+     *
+     * @return integer 
      */
     public function getId()
     {
@@ -37,27 +40,25 @@ class Question
     }
 
     /**
-     * @param int $id
+     * Set name
+     *
+     * @param string $name
+     * @return Question
      */
-    public function setId($id)
+    public function setName($name)
     {
-        $this->id = $id;
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
-     * @return string
+     * Get name
+     *
+     * @return string 
      */
     public function getName()
     {
         return $this->name;
     }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
 }

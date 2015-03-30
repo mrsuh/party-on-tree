@@ -3,21 +3,56 @@ parameters:
         1:
             question: Любимый цвет
             answer:
-                1: красный
-                2: синий
-                3: зеленый
-                4: черный
-            params:
-                mind: 1
-                kindness: 18
-                brave: 20
-                culture: 10
-        2:
-            question: Любимый цвет2
-            mind: 2
-            answer:
-                1: красный
-                2: синий
-                3: зеленый
-                4: черный
+                1:
+                    name: красный
+                    personage:
+                        1: Ice King
+                        2: Princess Booblegum
+                2:
+                    name: синий
+                    personage:
+                        1: Lady Raincorn
+                        2: Marceline
+                        3: Lumpy Space Princess
 
+                3:
+                    name: красный
+                    personage:
+                        1: BMO
+                        2: Gunter
+                        3: Earl Of Lemongrab
+
+                4:
+                    name: черный
+                    personage:
+                        1: Flame Princess
+                        2: Pappermit Butler
+                        3: Lich
+        2:
+            question: Любимый цвет 2
+            answer:
+                1:
+                    name: красный
+                    personage:
+                        1: Ice King
+                        2: Princess Booblegum
+                2:
+                    name: синий
+                    personage:
+                        1: Lady Raincorn
+                        2: Marceline
+                        3: Lumpy Space Princess
+
+                3:
+                    name: красный
+                    personage:
+                        1: BMO
+                        2: Gunter
+                        3: Earl Of Lemongrab
+
+                4:
+                    name: черный
+                    personage:
+                        1: Flame Princess
+                        2: Pappermit Butler
+                        3: Lich

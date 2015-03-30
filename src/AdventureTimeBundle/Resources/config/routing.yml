@@ -19,10 +19,9 @@ remember_pass:
 
 
 #ajax
-ajax_registration:
-    path: /ajax-registration
-    defaults: { _controller: AdventureTimeBundle:Security:ajaxRegistration }
-
+ajax_get_questions:
+    path: /ajax-get-questions
+    defaults: { _controller: AdventureTimeBundle:Question:ajaxGetQuestions }
 
 
 index:

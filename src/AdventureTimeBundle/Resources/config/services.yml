@@ -2,12 +2,23 @@ services:
     model.user:
         class: AdventureTimeBundle\Model\UserModel
         arguments: [@doctrine.orm.entity_manager]
+
     model.security:
         class: AdventureTimeBundle\Model\SecurityModel
         arguments: ["@security.context", @doctrine.orm.entity_manager ,@model.user, @model.mail]
+
     model.mail:
         class: AdventureTimeBundle\Model\MailModel
         arguments: [@mailer, %mailer_user%]
+
+    model.question:
+        class: AdventureTimeBundle\Model\QuestionModel
+        arguments: [@doctrine.orm.entity_manager]
+
+    get_set_method_normalizer:
+         class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+         tags:
+            - { name: serializer.normalizer }
 
     wsse.security.authentication.provider:
         class: AdventureTimeBundle\Security\Authentication\Provider\WsseProvider
