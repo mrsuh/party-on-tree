@@ -23,7 +23,12 @@ ajax_get_questions:
     path: /ajax-get-questions
     defaults: { _controller: AdventureTimeBundle:Question:ajaxGetQuestions }
 
+ajax_get_answers:
+    path: /ajax-get-answers
+    defaults: { _controller: AdventureTimeBundle:Question:ajaxGetAnswers }
 
+
+#main pages
 index:
     path: /index
     defaults: { _controller: AdventureTimeBundle:Default:index }
@@ -36,5 +41,9 @@ admin:
 
 default:
     path: /
-    defaults: { _controller: AdventureTimeBundle:Default:default }
+    defaults: { _controller: AdventureTimeBundle:Default:default
+
+personage:
+    path: /personage/{id}
+    defaults: { _controller: AdventureTimeBundle:Personage:getPersonage, id: null }
 

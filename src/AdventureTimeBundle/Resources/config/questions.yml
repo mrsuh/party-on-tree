@@ -16,7 +16,7 @@ parameters:
                         3: Lumpy Space Princess
 
                 3:
-                    name: красный
+                    name: желтый
                     personage:
                         1: BMO
                         2: Gunter
@@ -36,6 +36,7 @@ parameters:
                     personage:
                         1: Ice King
                         2: Princess Booblegum
+                        3: BMO
                 2:
                     name: синий
                     personage:
@@ -44,7 +45,7 @@ parameters:
                         3: Lumpy Space Princess
 
                 3:
-                    name: красный
+                    name: желтый
                     personage:
                         1: BMO
                         2: Gunter

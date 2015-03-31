@@ -1,7 +1,7 @@
 services:
     model.user:
         class: AdventureTimeBundle\Model\UserModel
-        arguments: [@doctrine.orm.entity_manager]
+        arguments: [@doctrine.orm.entity_manager, @security.context]
 
     model.security:
         class: AdventureTimeBundle\Model\SecurityModel
