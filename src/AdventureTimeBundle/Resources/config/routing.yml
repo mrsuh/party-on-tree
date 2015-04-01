@@ -41,7 +41,7 @@ admin:
 
 default:
     path: /
-    defaults: { _controller: AdventureTimeBundle:Default:default
+    defaults: { _controller: AdventureTimeBundle:Default:default }
 
 personage:
     path: /personage/{id}
