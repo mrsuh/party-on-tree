@@ -1,3 +1,4 @@
+#security
 login_check:
     path: /login-check
 
@@ -16,34 +17,31 @@ remember_pass:
     path: /remember-pass
     defaults: { _controller: AdventureTimeBundle:Security:rememberPass }
 
-
-
-#ajax
-ajax_get_questions:
-    path: /ajax-get-questions
-    defaults: { _controller: AdventureTimeBundle:Question:ajaxGetQuestions }
-
-ajax_get_answers:
-    path: /ajax-get-answers
-    defaults: { _controller: AdventureTimeBundle:Question:ajaxGetAnswers }
-
-
-#main pages
-index:
-    path: /index
-    defaults: { _controller: AdventureTimeBundle:Default:index }
-user:
-    path: /user
-    defaults: { _controller: AdventureTimeBundle:Default:user }
-admin:
-    path: /admin
-    defaults: { _controller: AdventureTimeBundle:Default:admin }
-
+#redirect to default page
 default:
     path: /
-    defaults: { _controller: AdventureTimeBundle:Default:default }
+    defaults: { _controller: AdventureTimeBundle:Default:defaultPage }
 
+#personages
 personage:
     path: /personage/{id}
-    defaults: { _controller: AdventureTimeBundle:Personage:getPersonage, id: null }
+    defaults: { _controller: AdventureTimeBundle:Personage:personage, id:null }
 
+personages:
+    path: /personages
+    defaults: { _controller: AdventureTimeBundle:Personage:personages }
+
+#profile
+profile:
+    path: /profile
+    defaults: { _controller: AdventureTimeBundle:Profile:profile }
+
+#information about site
+information:
+    path: /information
+    defaults: { _controller: AdventureTimeBundle:Information:information }
+
+#test
+test:
+    path: /test
+    defaults: { _controller: AdventureTimeBundle:Test:test }

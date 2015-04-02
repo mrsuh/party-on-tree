@@ -1,9 +1,6 @@
 <?php namespace AdventureTimeBundle\Model;
 
 use AdventureTimeBundle\Constants;
-use AdventureTimeBundle\Entity\User;
-use Symfony\Component\Finder\Exception\AccessDeniedException;
-use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
 class UserModel
 {
@@ -22,19 +19,8 @@ class UserModel
         if ($this->isUserExist($data['username'])) {
             throw new \Exception(__FUNCTION__ . ' USER_EXIST');
         }
-        $role = $this->em->getRepository('AdventureTimeBundle:Role')->findOneByName($data['role']);
 
-        $user = new User();
-        $user->setUsername($data['username']);
-        $user->setEmail($data['email']);
-        $user->setSalt(md5(time()));
-
-        $encoder = new MessageDigestPasswordEncoder('sha512', true, 10);
-        $password = $encoder->encodePassword($data['password'], $user->getSalt());
-        $user->setPassword($password);
-        $user->setRoles($role);
-
-        $this->em->persist($user);
+        $this->em->getRepository('AdventureTimeBundle:User')->createUser($data);
 
         return Constants::OK;
     }
