@@ -1,114 +1,12 @@
 {% extends "AdventureTimeBundle::layout.html.twig" %}
 {% block content %}
-    Hello USER!
-    <!-- Button trigger modal -->
-    <button type="button" class="btn " data-toggle="modal" data-target="#myModal">
-        Launch demo modal
-    </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Who you are in 'Adventure Time'?</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="modal-body"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="next">Next question</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<h1>О сайте</h1>
+<div class="test">
 
+</div>
 {% endblock %}
 
 {% block js %}
-    <script>
-        var questions = {};
-        var count = 0;
-        var answers = {};
-        $('#next').on('click', function () {
-            $('.modal-body').hide();
-            getAnswer();
-            nextQuestion();
-            $('.modal-body').show('slow');
-        });
 
-        getQuestions();
-
-        $('#modal-body').on('click', function(){
-            checkButtons();
-        });
-
-        function checkButtons()
-        {
-            $('#next').addClass('disabled');
-            var all = $('#modal-body input[type="radio"]');
-            all.each(function () {
-                if($(this).prop('checked')) {
-                    $('#next').removeClass('disabled');
-                }
-            });
-        }
-
-        function getAnswer()
-        {
-            var all = $('#modal-body input[type="radio"]');
-            all.each(function () {
-                if($(this).prop('checked')) {
-                    answers[$(this).val()] = $(this).val();
-                }
-            });
-        }
-
-        function getQuestions() {
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: "{{ url('ajax_get_questions') }}"
-            }).done(function (data) {
-                questions = data;
-                nextQuestion();
-            });
-        }
-
-        function sendAnswers()
-        {
-            JSON.stringify(answers);
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: "{{ url('ajax_get_answers') }}",
-                data: {
-                    answers: answers
-                }
-            }).done(function (data) {
-            });
-        }
-
-        function nextQuestion() {
-            count++;
-
-            if(questions[count] == undefined) {
-                $('#myModal .close').click();
-                sendAnswers();
-                return;
-            }
-                var html = [];
-                var str = '<p><strong>' + questions[count]['question'] + '</strong><p>';
-                html.push(str);
-                for (var id in questions[count]['answer']) {
-                    var str = '<p><input type="radio" value="' + [id] + '" name="answer"/> ' + questions[count]['answer'][id] + '<p>';
-                    html.push(str);
-                }
-
-            $('#modal-body').html(html);
-            checkButtons();
-        }
-    </script>
 {% endblock %}

@@ -1,20 +1,20 @@
 #security
 login_check:
-    path: /login-check
+    path: /profile/login-check
 
 logout:
-    path: /logout
+    path: /profile/logout
 
 login:
-    path: /login
+    path: /profile/login
     defaults: { _controller: AdventureTimeBundle:Security:login }
 
 registration:
-    path: /registration
+    path: /profile/registration
     defaults: { _controller: AdventureTimeBundle:Security:registration }
 
 remember_pass:
-    path: /remember-pass
+    path: /profile/remember-pass
     defaults: { _controller: AdventureTimeBundle:Security:rememberPass }
 
 #redirect to default page
@@ -25,7 +25,7 @@ default:
 #personages
 personage:
     path: /personage/{id}
-    defaults: { _controller: AdventureTimeBundle:Personage:personage, id:null }
+    defaults: { _controller: AdventureTimeBundle:Personage:personage }
 
 personages:
     path: /personages

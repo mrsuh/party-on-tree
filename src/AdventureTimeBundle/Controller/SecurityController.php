@@ -20,9 +20,7 @@ class SecurityController extends Controller
 
         } else {
 
-            if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_ADMIN)) {
-                return $this->redirect($this->generateUrl('admin'));
-            } else if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_USER)) {
+           if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_USER)) {
                 return $this->redirect($this->generateUrl('user'));
             }
 
@@ -42,8 +40,7 @@ class SecurityController extends Controller
             if ($this->get('model.security')->registration($formData)) {
                 $data = array('subject' => 'Registration', 'mail' => $formData['email'], 'body' => $this->renderView('AdventureTimeBundle:Mail:registration.html.twig', array('username' => $formData['username'], 'pass' => $formData['password'])),);
                 $this->get('model.mail')->sendMail($data);
-
-                return $this->redirect($this->generateUrl('user'));
+                return $this->redirect($this->generateUrl('profile'));
 
             } else {
                 return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView(), 'error' => true,));

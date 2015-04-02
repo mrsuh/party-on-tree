@@ -1,12 +1,12 @@
 <?php
 
-namespace Artvisio\DockerBillingBundle\Repository;
+namespace AdventureTimeBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use AdventureTimeBundle\Entity\User;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
-
-class DiscountRepository extends EntityRepository
+use AdventureTimeBundle\Constants;
+class UserRepository extends EntityRepository
 {
     public function createUser($data)
     {
