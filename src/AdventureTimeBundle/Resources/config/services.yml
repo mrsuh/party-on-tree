@@ -15,6 +15,10 @@ services:
         class: AdventureTimeBundle\Model\QuestionModel
         arguments: [@doctrine.orm.entity_manager]
 
+    model.personage:
+        class: AdventureTimeBundle\Model\PersonageModel
+        arguments: [@doctrine.orm.entity_manager]
+
     get_set_method_normalizer:
          class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
          tags:

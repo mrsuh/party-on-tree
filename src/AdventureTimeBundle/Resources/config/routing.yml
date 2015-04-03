@@ -24,7 +24,7 @@ default:
 
 #personages
 personage:
-    path: /personage/{id}
+    path: /personage
     defaults: { _controller: AdventureTimeBundle:Personage:personage }
 
 personages:

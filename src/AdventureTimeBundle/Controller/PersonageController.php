@@ -1,16 +1,22 @@
 <?php namespace AdventureTimeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class PersonageController extends Controller
 {
-    public function personageAction($id)
+    public function personageAction(Request $request)
     {
-        return $this->render('AdventureTimeBundle:Personage:personage.html.twig');
+        $personage = $request->query->get('personage');
+
+        return $this->render('AdventureTimeBundle:Personage:personage.html.twig', array('personage' => $personage));
     }
 
     public function personagesAction()
     {
-        return $this->render('AdventureTimeBundle:Personage:personages.html.twig');
+        $personages = $this->get('model.personage')->getPersonages();
+
+        return $this->render('AdventureTimeBundle:Personage:personages.html.twig', array('personages' => $personages));
     }
 }

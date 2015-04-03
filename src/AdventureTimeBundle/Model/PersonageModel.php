@@ -13,9 +13,18 @@ class PersonageModel
         $this->em = $em;
     }
 
-    public function getPersonageAction($id)
+    public function getPersonages()
     {
+        $personages = $this->em->getRepository('AdventureTimeBundle:Personage')->findAll();
+        $data = array();
+        foreach($personages as $p) {
+            $data[] = array(
+                'img' => $p->getName(),
 
+            );
+        }
+
+        return $data;
     }
 
 }

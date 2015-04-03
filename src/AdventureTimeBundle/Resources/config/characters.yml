@@ -9,15 +9,15 @@ parameters:
             name_ru: Джейк
             sex: male
         3:
-            name: Princess Booblegum
+            name: Princess_Booblegum
             name_ru: Принцесса Бубльгум
             sex: female
         4:
-            name: Ice King
+            name: Ice_King
             name_ru: Ледяной король
             sex: male
         5:
-            name: Lady Raincorn
+            name: Lady_Raincorn
             name_ru: Леди ливнерог
             sex: female
         6:
@@ -25,7 +25,7 @@ parameters:
             name_ru: Марселин
             sex: female
         7:
-            name: Lumpy Space Princess
+            name: Lumpy_Space_Princess
             name_ru: ППК
             sex: female
         8:
@@ -37,16 +37,16 @@ parameters:
             name_ru: Гюнтер
             sex: male
         10:
-            name: Earl Of Lemongrab
+            name: Earl_Of_Lemongrab
             name_ru: Лемон
             sex: male
         11:
-            name: Flame Princess
+            name: Flame_Princess
             name_ru: Принцесса пламя
             sex: female
 
         12:
-            name: Pappermit Butler
+            name: Pappermit_Butler
             name_ru: Конфета
             sex: male
         13:
@@ -58,29 +58,29 @@ parameters:
             name_ru: Флмабо
             sex: male
         15:
-            name: Hunson Abadeer
+            name: Hunson_Abadeer
             name_ru: Хансон Абадир
             sex: male
         16:
-            name: Cinnamon Bun
+            name: Cinnamon_Bun
             name_ru: ХЗ
             sex: male
 
         17:
-            name: Party God
+            name: Party_God
             name_ru: Бог вчероинок
             sex: male
         18:
-            name: Ghost Princess
+            name: Ghost_Princess
             name_ru: Принцесса призрак
             sex: female
         19:
-            name: Party Pat
+            name: Party_Pat
             name_ru: Мишка тусовщик
             sex: male
 
         20:
-            name: Lollypop Girl
+            name: Lollypop_Girl
             name_ru: Деовчка леденец
             sex: female
         21:
@@ -93,7 +93,7 @@ parameters:
             sex: male
 
         23:
-            name: Cosmic Owl
+            name: Cosmic_Owl
             name_ru: Космческая сова
             sex: female
         24:

@@ -67,7 +67,7 @@ class QuestionModel
             }
         }
 
-        return $personage->getId();
+        return $personage->getName();
     }
 
 }

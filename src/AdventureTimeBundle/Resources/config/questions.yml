@@ -6,25 +6,25 @@ parameters:
                 1:
                     name: красный
                     personage:
-                        1: Ice King
-                        2: Princess Booblegum
+                        1: Ice_King
+                        2: Princess_Booblegum
                 2:
                     name: синий
                     personage:
-                        1: Lady Raincorn
+                        1: Lady_Raincorn
                         2: Marceline
-                        3: Lumpy Space Princess
+                        3: Lumpy_Space_Princess
                 3:
                     name: желтый
                     personage:
                         1: BMO
                         2: Gunter
-                        3: Earl Of Lemongrab
+                        3: Earl_Of_Lemongrab
                 4:
                     name: черный
                     personage:
-                        1: Flame Princess
-                        2: Pappermit Butler
+                        1: Flame_Princess
+                        2: Pappermit_Butler
                         3: Lich
         2:
             question: Что ты ел сегодня на завтрак?
@@ -41,13 +41,13 @@ parameters:
                 3:
                     name: конфеты
                     personage:
-                        1: Lumpy Space Princess
-                        2: Princess Booblegum
-                        3: Cinnamon Bun
+                        1: Lumpy_Space_Princess
+                        2: Princess_Booblegum
+                        3: Cinnamon_Bun
                 4:
                     name: что-то замороженое
                     personage:
-                        1: Ice King
+                        1: Ice_King
                         2: Gunter
         3:
             question: Самое удачное место для жилья:
@@ -55,10 +55,10 @@ parameters:
                 1:
                     name: королевский дворец
                     personage:
-                        1: Princess Booblegum
-                        2: Ice King
-                        3: Earl Of Lemongrab
-                        4: Flame Princess
+                        1: Princess_Booblegum
+                        2: Ice_King
+                        3: Earl_Of_Lemongrab
+                        4: Flame_Princess
                 2:
                     name: домик на дереве
                     personage:
@@ -69,13 +69,13 @@ parameters:
                     name: космос
                     personage:
                         1: Prismo
-                        2: Cosmic Owl
+                        2: Cosmic_Owl
                 4:
                     name: на природе
                     personage:
-                        1: Lumpy Space Princess
-                        2: Lady Raincorn
-                        3: Party God
+                        1: Lumpy_Space_Princess
+                        2: Lady_Raincorn
+                        3: Party_God
         4:
             question: Ваш внутренний возраст
             answer:
@@ -84,27 +84,27 @@ parameters:
                     personage:
                         1: Finn
                         2: BMO
-                        3: Flame Princess
+                        3: Flame_Princess
                 2:
                     name: 17-25 лет
                     personage:
-                        1: Princess Booblegum
-                        2: Lumpy Space Princess
+                        1: Princess_Booblegum
+                        2: Lumpy_Space_Princess
                 3:
                     name: 1000 лет
                     personage:
                         1: Lich
-                        2: Hunson Abadeer
+                        2: Hunson_Abadeer
                         3: Marceline
-                        4: Ice King
-                        5: Cosmic Owl
+                        4: Ice_King
+                        5: Cosmic_Owl
                         5: Prismo
                 4:
                     name: около 30 лет
                     personage:
-                        1: Lady Raincorn
+                        1: Lady_Raincorn
                         2: Jake
-                        3: Cinnamon Bun
+                        3: Cinnamon_Bun
                         4: Gunter
         5:
             question: Лучшее времяпрепровождение:
@@ -112,8 +112,8 @@ parameters:
                 1:
                     name: тусовка
                     personage:
-                        1: Party Pat
-                        2: Party God
+                        1: Party_Pat
+                        2: Party_God
                 2:
                     name: спасение принцесс
                     personage:
@@ -123,25 +123,25 @@ parameters:
                     name: творчество
                     personage:
                         1: Marceline
-                        2: Ice King
-                        3: Lumpy Space Princess
+                        2: Ice_King
+                        3: Lumpy_Space_Princess
                 4:
                     name: болтовня
                     personage:
                         1: Prismo
                         2: BMO
-                        3: Lady Raincorn
+                        3: Lady_Raincorn
         6:
             question: Твое хобби
             answer:
                 1:
                     name: занимаюсь наукой
                     personage:
-                        1: Princess Booblegum
+                        1: Princess_Booblegum
                 2:
                     name: пишу рассказы
                     personage:
-                        1: Ice King
+                        1: Ice_King
                 3:
                     name: пою в душе
                     personage:
@@ -152,8 +152,8 @@ parameters:
                     personage:
                         1: Marceline
                         2: Lich
-                        3: Earl Of Lemongrab
-                        4: Hunson Abadeer
+                        3: Earl_Of_Lemongrab
+                        4: Hunson_Abadeer
         7:
             question: Как ты относишься к снегу?
             answer:
@@ -162,11 +162,11 @@ parameters:
                     personage:
                         1: Lich
                         2: Marceline
-                        3: Lumpy Space Princess
+                        3: Lumpy_Space_Princess
                 2:
                     name: что может быть лучше снега?
                     personage:
-                        1: Ice King
+                        1: Ice_King
                         2: Gunter
                 3:
                     name: круто! Можно в снежки поиграть
@@ -176,32 +176,32 @@ parameters:
                 4:
                     name: снег - это Неприемлемо!
                     personage:
-                        1: Earl Of Lemongrab
+                        1: Earl_Of_Lemongrab
         8:
             question: Кем ты будешь на Хеллоуин?
             answer:
                 1:
-                    name: самим собой!
+                    name: самим_собой!
                     personage:
                         1: Lich
-                        2: Earl Of Lemongrab
-                        3: Hunson Abadeer
+                        2: Earl_Of_Lemongrab
+                        3: Hunson_Abadeer
                 2:
                     name: медсестрой
                     personage:
                         1: Marceline
-                        2: Ice King
+                        2: Ice_King
                 3:
                     name: зомби
                     personage:
                         1: Jake
                         2: Finn
-                        3: Princess Booblegum
+                        3: Princess_Booblegum
                 4:
                     name: космической совой
                     personage:
-                        1: Cosmic Owl
-                        2: Lumpy Space Princess
+                        1: Cosmic_Owl
+                        2: Lumpy_Space_Princess
         9:
             question: В музыкальной группе ты:
             answer:
@@ -209,7 +209,7 @@ parameters:
                     name: играешь на скрипке
                     personage:
                         1: Jake
-                        2: Lady Raincorn
+                        2: Lady_Raincorn
                 2:
                     name: битбоксер
                     personage:
@@ -218,12 +218,12 @@ parameters:
                 3:
                     name: портишь всем настроение
                     personage:
-                        1: Lumpy Space Princess
-                        2: Ice King
+                        1: Lumpy_Space_Princess
+                        2: Ice_King
                         3: Lich
-                        4: Earl Of Lemongrab
+                        4: Earl_Of_Lemongrab
                 4:
                     name: играешь на гитаре
                     personage:
                         1: Marceline
-                        2: Flame Princess
+                        2: Flame_Princess

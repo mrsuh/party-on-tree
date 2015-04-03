@@ -11,8 +11,9 @@ class TestController extends Controller
         if ($request->isMethod('POST')) {
             $answers = $request->request->get('answer');
             if($answers) {
-                $id = $this->get('model.question')->processAnswers($answers);
+                $personage = $this->get('model.question')->processAnswers($answers);
 
+                return $this->redirect($this->generateUrl('personage', array('personage' => $personage)));
             }
 
 
