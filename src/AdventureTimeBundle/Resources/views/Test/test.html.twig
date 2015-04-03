@@ -1,12 +1,69 @@
 {% extends "AdventureTimeBundle::layout.html.twig" %}
 {% block content %}
-<h1>Тест</h1>
+    <form action="{{ url('test') }}" method="post">
+        {% for key, question in questions %}
+            <div class="test" data-next="{{ key + 1 }} " id="{{ key }}" style="display: none">
+                <h3>Question {{ key }} in {{ question.total }}</h3>{{ question.question }}
 
-<div id="test"></div>
-    <button class="btn" id="next">Next</button>
+                {% for answer in question.answer %}
+                    <div class="form-control center-block" style="margin: 10px 0px">
+                        <input type="radio" value="{{ answer.id }}" name="radio"/> {{ answer.name }}
+                    </div>
+                {% endfor %}
 
+            </div>
+        {% endfor %}
+        <button type="button" class="next btn">Next</button>
+        <div id="answer"></div>
+        <input type="submit">
+    </form>
 {% endblock %}
 
 {% block js %}
+    <script>
 
+        function hideQuestions() {
+            var test = $('.test');
+            test.hide();
+            $('#1').show('slow');
+        }
+
+        function checkButtons() {
+            $('.next').attr('disabled', true);
+
+            $('.test input[type=radio]').on('click', function () {
+                $('.next').attr('disabled', false);
+
+            });
+        }
+        checkButtons();
+        function nextQuestion() {
+            checkButtons();
+
+            $('.next').on('click', function () {
+
+                var next = $('.test:visible').data('next');
+                var id = next - 1;
+                console.log(next);
+                getAnswer(id);
+
+                $('#' + id).hide('slow');
+                $('#' + next).show('slow');
+
+            })
+        }
+
+        function getAnswer(id) {
+            addHiddenInput($('#' + id + ' input:checked').val());
+        }
+
+        function addHiddenInput(answer) {
+            console.log('ans' + answer);
+
+            $('#answer').append('<input type="hidden" name="answer[' + answer + ']" value="' + answer + '"/>');
+        }
+
+        hideQuestions();
+        nextQuestion();
+    </script>
 {% endblock %}

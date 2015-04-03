@@ -9,8 +9,8 @@
 <body>
 <div class="header">
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-2">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
             <img src="{{ asset('img/logo.png') }}" class="img-responsive center-block" alt="Responsive image" style="margin-top: 10px">
             </div>
         <div class="col-md-5">
@@ -21,20 +21,20 @@
 
     <div class="row" style="margin-top: 15px">
 
-        <div class="col-md-4 col-sm-2"></div>
-        <div class="col-md-1 col-sm-2">
-            <a href="{{ url('test') }}" class="btn btn-center-block " style="min-width:120px"><h4>Персонажи</h4></a>
+        <div class="col-md-2 col-sm-2"></div>
+        <div class="col-md-2 col-sm-2">
+            <a href="{{ url('personages') }}" class="btn center-block " style="min-width:120px"><h3>Сharacters</h3></a>
         </div>
-        <div class="col-md-1 col-sm-2">
-            <a href="{{ url('personages') }}" class="btn  center-block" style="min-width:120px"><h4>Тест</h4></a>
+        <div class="col-md-2 col-sm-2">
+            <a href="{{ url('test') }}" class="btn  center-block" style="min-width:120px"><h3>Test</h3></a>
         </div>
-        <div class="col-md-1 col-sm-2">
-            <a href="{{ url('information') }}" class="btn center-block" style="min-width:120px"><h4>О сайте</h4></a>
+        <div class="col-md-2 col-sm-2">
+            <a href="{{ url('information') }}" class="btn center-block" style="min-width:120px"><h3>About us</h3></a>
         </div>
-        <div class="col-md-1 col-sm-2">
-            <a href="{{ url('logout') }}" class="btn center-block" style="min-width:120px"><h4>Профиль</h4></a>
+        <div class="col-md-2 col-sm-2">
+            <a href="{{ url('logout') }}" class="btn center-block" style="min-width:120px"><h3>Profile</h3></a>
         </div>
-        <div class="col-md-4 col-sm-2"></div>
+        <div class="col-md-2 col-sm-2"></div>
 
     </div>
 </div>
@@ -43,7 +43,7 @@
     <div class="row" style="margin-top: 15px">
 
         <div class="col-md-4 col-sm-2"></div>
-        <div class="col-md-8 col-sm-2">
+        <div class="col-md-4 col-sm-2">
             {% block content %}{% endblock %}
         </div>
         <div class="col-md-4 col-sm-2"></div>

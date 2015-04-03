@@ -18,18 +18,27 @@ class QuestionModel
         $data = array();
         $questions = $this->em->getRepository('AdventureTimeBundle:Question')->findAll();
         $count = 1;
+
+        $total = count($questions);
         foreach($questions as $q) {
             $answers = $this->em->getRepository('AdventureTimeBundle:Answer')->findByQuestion($q);
-            $data[$count]['question'] = $q->getName();
+            $data[$count] = array(
+                'question' => $q->getName(),
+                'total' => $total,
+            );
 
             foreach ($answers as $a) {
-                $data[$count]['answer'][$a->getId()] = $a->getName();
+                $data[$count]['answer'][] = array(
+                    'name' =>$a->getName(),
+                    'id' => $a->getId(),
+                );
             }
             $count++;
 
         }
 
         return $data;
+
     }
 
     public function processAnswers($answers)
@@ -48,17 +57,17 @@ class QuestionModel
             }
         }
 
-        assort($personages);
+        asort($personages);
         $personage = null;
-        foreach($personages as $p) {
-            $pers = $this->em->getRepository('AdventureTimeBundle:Personage')->findOneById($p);
-            if(!$pers->getAcive()) {
+        foreach($personages as $key => $val) {
+            $pers = $this->em->getRepository('AdventureTimeBundle:Personage')->findOneById($key);
+            if(!$pers->getActive()) {
                 $personage = $pers;
                 break;
             }
         }
 
-        return $personage;
+        return $personage->getId();
     }
 
 }
