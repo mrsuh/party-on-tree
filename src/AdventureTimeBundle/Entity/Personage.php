@@ -43,6 +43,20 @@ class Personage
     private $sex;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="sex", type="string", length=255)
+     */
+    private $age;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sex", type="string", length=255)
+     */
+    private $race;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="active", type="boolean")
@@ -146,4 +160,42 @@ class Personage
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param string $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRace()
+    {
+        return $this->race;
+    }
+
+    /**
+     * @param string $race
+     */
+    public function setRace($race)
+    {
+        $this->race = $race;
+
+        return $this;
+    }
+
+
 }

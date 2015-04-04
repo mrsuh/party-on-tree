@@ -5,29 +5,28 @@ h3
 
 #welcome
 {
+
     font-size: 7em;
 }
 
 #party-on-tree
 {
-    /*font-family: AvenirNext;*/
-    font-size: 3.5em;
+    font-size: 3.2em;
 }
 
 body {
 background-color: #bae4da;
 }
 
-
 /*button*/
 .btn-success:active {
-    background-color: #333745;
-    border-color: #333745;
+    background-color: #008886;
+    border-color: #008886;
 }
 
 .btn-success:target {
-    background-color: #333745;
-    border-color: #333745;
+    background-color: #008886;
+    border-color: #008886;
 }
 
 .btn-success {
@@ -36,23 +35,19 @@ background-color: #bae4da;
 }
 
 .btn-success:disabled {
-    background-color: #331140;
-    border-color: #331140;
+    background-color: #c6c6c6;
+    border-color: #c6c6c6;
 }
 
 .btn-success:disabled:hover {
-    background-color: #331140;
-    border-color: #331140;
+    background-color: #c6c6c6;
+    border-color: #c6c6c6;
 }
 
 .btn-success:hover {
-    background-color: #331140;
-    border-color: #331140;
+    background-color: #008886;
+    border-color: #008886;
 }
-
-
-
-
 
 a {
     color: #333745;

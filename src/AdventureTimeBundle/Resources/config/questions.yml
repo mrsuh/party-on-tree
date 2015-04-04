@@ -227,3 +227,99 @@ parameters:
                     personage:
                         1: Marceline
                         2: Flame_Princess
+        10:
+            question: Какого пола ты хотел бы быть?
+            answer:
+                1:
+                    name: Мужского
+                    personage:
+                        1: Finn
+                        2: Jake
+                        3: Ice_King
+                        4: Earl_Of_Lemongrab
+                        5: Pappermit_Butler
+                        6: Lich
+                        7: Flambo
+                        8: Hunson_Abadeer
+                        9: Cinnamon_Bun
+                        10: Party_God
+                        11: Party_Pat
+                        12: Prismo
+                        12: Billy
+                        13: Starchy
+                2:
+                    name: Женского
+                    personage:
+                        1: Princess_Booblegum
+                        2: Lady_Raincorn
+                        3: Marceline
+                        4: Lumpy_Space Princess
+                        5: Flame_Princess
+                        6: Ghost_Princess
+                        7: Lollypop_Girl
+                3:
+                    name: Я еще не определилсо
+                    personage:
+                        1: BMO
+                        2: Gunter
+                        3: Cosmic_Owl
+
+        11:
+            question: Твоим недостатком является?
+            answer:
+                1:
+                    name: Излишняя прямолинейность
+                    personage:
+                        1: Cosmic_Owl
+                        2: Jake
+                        3: Cosmic_Owl
+                2:
+                    name: Гордость
+                    personage:
+                        1: Ice_King
+                        2: Earl_Of_Lemongrab
+                        3: Lumpy_Space_Princess
+                3:
+                    name: Лень
+                    personage:
+                        1: Gunter
+                        2: Lollypop_Girl
+                        3: Billy
+
+                4:
+                    name: Вспыльчивость
+                    personage:
+                        1: Flame_Princess
+                        2: Lich
+                        3: Finn
+        12:
+            question: В чем ваше преимущество?
+            answer:
+                1:
+                    name: Ум
+                    personage:
+                        1: Princess_Booblegum
+                        2: Ice_King
+                        3: Pappermit_Butler
+                2:
+                    name: Милая(-ый)
+                    personage:
+                        1: Lady_Raincorn
+                        2: Cinnamon_Bun
+                        3: Ghost_Princess
+                        4: Lollypop_Grl
+                3:
+                    name: Храбрость
+                    personage:
+                        1: Billy
+                        2: Finn
+                        3: Jake
+                        4: BMO
+                4:
+                    name: Чувство юмора
+                    personage:
+                        1: Party_God
+                        2: Party_Pat
+                        3: Starchy
+                        4: Lumpy_Space_Princess
+

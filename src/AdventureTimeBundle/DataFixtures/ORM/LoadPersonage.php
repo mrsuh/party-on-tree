@@ -26,6 +26,8 @@ class LoadPersonage extends AbstractFixture implements FixtureInterface, Ordered
                 ->setSex($data['sex'])
                 ->setNameRussian($data['name_ru'])
                 ->setActive(false)
+                ->setAge($data['age'])
+                ->setRace($data['race'])
             ;
             $manager->persist($personage);
         }
