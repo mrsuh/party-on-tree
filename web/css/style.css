@@ -14,9 +14,53 @@ h3
     font-size: 3.5em;
 }
 
-body
-{
+body {
 background-color: #bae4da;
+}
+
+
+/*button*/
+.btn-success:active {
+    background-color: #333745;
+    border-color: #333745;
+}
+
+.btn-success:target {
+    background-color: #333745;
+    border-color: #333745;
+}
+
+.btn-success {
+    background-color: #333745;
+    border-color: #333745;
+}
+
+.btn-success:disabled {
+    background-color: #331140;
+    border-color: #331140;
+}
+
+.btn-success:disabled:hover {
+    background-color: #331140;
+    border-color: #331140;
+}
+
+.btn-success:hover {
+    background-color: #331140;
+    border-color: #331140;
+}
+
+
+
+
+
+a {
+    color: #333745;
+}
+
+a:hover
+{
+    color: #ffffff;
 }
 
 .nav h3:hover
@@ -37,4 +81,32 @@ background-color: #bae4da;
 .err .message
 {
     font-size: 3em;
+}
+
+.test .active
+{
+    background-color: #bae4da;
+}
+
+
+/*login*/
+.login input
+{
+    width: 300px;
+    margin-top: 10px;
+}
+
+
+/*registration*/
+
+.registration input
+{
+    width: 300px;
+    margin-top: 10px;
+}
+
+.registration [type="submit"]
+{
+    width: 300px;
+    margin-top: 10px;
 }

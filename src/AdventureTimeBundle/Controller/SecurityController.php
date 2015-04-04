@@ -36,18 +36,27 @@ class SecurityController extends Controller
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             $formData = $form->getData();
+
+            if(!$this->get('model.security')->isValidCode($formData['invite_code'])) {
+                return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView(), 'error' => Constants::WRONG_INVITE_CODE));
+            }
+
             $formData['role'] = Constants::ROLE_USER;
             if ($this->get('model.security')->registration($formData)) {
-                $data = array('subject' => 'Registration', 'mail' => $formData['email'], 'body' => $this->renderView('AdventureTimeBundle:Mail:registration.html.twig', array('username' => $formData['username'], 'pass' => $formData['password'])),);
+                $data = array(
+                    'subject' => 'Registration',
+                    'mail' => $formData['email'],
+                    'body' => $this->renderView('AdventureTimeBundle:Mail:registration.html.twig', array('username' => $formData['username'], 'pass' => $formData['password']))
+                );
                 $this->get('model.mail')->sendMail($data);
                 return $this->redirect($this->generateUrl('profile'));
 
             } else {
-                return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView(), 'error' => true,));
+                return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView(), 'error' => Constants::USER_EXIST, 'username' => $formData['username']));
             }
         }
 
-        return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView(), 'error' => false,));
+        return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView()));
     }
 
     public function rememberPassAction(Request $request)

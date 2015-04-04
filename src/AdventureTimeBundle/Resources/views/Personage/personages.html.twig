@@ -2,7 +2,7 @@
 {% block content %}
 
 {% for personage in personages %}
-    <a href="{{ url('personage', {'personage': personage.img }) }}" > <img src="{{ asset('img/personages/' ~ personage.img ~ '.png') }}" class="img-responsive" style="width: 200px; display:none"></a>
+    <a href="{{ url('personage', {'id': personage.id }) }}" > <img src="{{ asset('img/personages/' ~ personage.name ~ '.png') }}" class="img-responsive" style="width: 200px; display:none"></a>
 {% endfor %}
 
 {% endblock %}

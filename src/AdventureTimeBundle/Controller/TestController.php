@@ -13,7 +13,7 @@ class TestController extends Controller
             if($answers) {
                 $personage = $this->get('model.question')->processAnswers($answers);
                 $this->get('model.user')->setPersonageToUser($personage);
-                return $this->redirect($this->generateUrl('personage', array('personage' => $personage->getName())));
+                return $this->redirect($this->generateUrl('personage', array('id' => $personage->getId())));
             }
         }
 

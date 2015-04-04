@@ -8,7 +8,7 @@ class PersonageController extends Controller
 {
     public function personageAction(Request $request)
     {
-        $personage = $request->query->get('personage');
+        $personage = $this->get('model.personage')->getPersonageById($request->query->get('id'));
 
         return $this->render('AdventureTimeBundle:Personage:personage.html.twig', array('personage' => $personage));
     }

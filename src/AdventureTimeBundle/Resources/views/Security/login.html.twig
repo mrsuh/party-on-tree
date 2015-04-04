@@ -1,22 +1,22 @@
 {% extends "AdventureTimeBundle::layout.html.twig" %}
 {% block content %}
     <form action="{{ url('login_check') }}" method="POST">
-        <div class="row login-form">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <h1>Welcome to party on tree</h1>
-                <div class="form-group">
-                    <label for="username">username</label>
-                    <input type="text" class="form-control" id="username" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_NAME') }}" value="{{ last_username }}" placeholder="email" required="true"/>
-                    <label for="username">password</label>
-                    <input type="password" class="form-control" id="password" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_PASS') }}" placeholder="password" required="true"/>
-                    <input type="submit" class="btn btn-success access" name="login" value="Enter"/>
-                    {% if error == 'true' %}
-                        неверный логин или пароль
-                    {% endif %}
-                </div>
-            </div>
-            <div class="col-sm-4"></div>
+        <div class="form-group login" style="width: 100%">
+            <input type="text" class="form-control center-block" id="username"
+                   name="{{ constant('AdventureTimeBundle\\Constants::WSSE_NAME') }}" value="{{ last_username }}"
+                   placeholder="login" required="true"/>
+            <input type="password" class="form-control center-block" id="password"
+                   name="{{ constant('AdventureTimeBundle\\Constants::WSSE_PASS') }}" placeholder="password"
+                   required="true"/>
+
+            {% if error == true %}
+               <p><p class="text-danger text-center">Login or password are incorrect</p>
+            {% endif %}
+
+            <input type="submit" class="btn btn-success access center-block" name="login" value="SIGN IN"/>
+
+
+            <p><p class="text-center"><a href="{{ url('registration') }}">Registration</a></p>
         </div>
     </form>
 {% endblock %}

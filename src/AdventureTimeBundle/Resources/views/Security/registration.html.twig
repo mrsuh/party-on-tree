@@ -1,25 +1,58 @@
 {% extends "AdventureTimeBundle::layout.html.twig" %}
 {% block content %}
-    {{ form_start(form) }}
-    <div class="row registration-form">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-            <h1>Registration</h1>
-            <div class="form-group">
-                <label for="registration_username">username</label>
-                {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
-                <label for="registration_email">email</label>
-                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-                <label for="registration_password">password</label>
-                {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
-                <label for="registration_password_confirm">password confirm</label>
-                {{ form_widget(form.password_confirm, {'attr': {'class': 'form-control'}}) }}
-                {{ form_widget(form.submit, {'attr': {'class': 'btn btn-success'}}) }}
+    {{ form_start(form, {'attr': {'class': 'registration-form'}}) }}
+
+            <div class="form-group registration">
+
+                {{ form_widget(form.username, {'attr': {'class': 'form-control center-block', 'placeholder': 'login' }}) }}
+
+                {{ form_widget(form.email, {'attr': {'class': 'form-control center-block', 'placeholder': 'email' }}) }}
+
+                {{ form_widget(form.password, {'attr': {'class': 'form-control center-block', 'placeholder': 'password' }}) }}
+
+                {{ form_widget(form.invite_code, {'attr': {'class': 'form-control center-block', 'placeholder': 'invite code' }}) }}
+
+                <div class="mail-error" style="display: none">
+                   <p></p><p class="text-center text-danger">Wrong email</p>
+                </div>
+                {% if error is defined and error == constant('AdventureTimeBundle\\Constants::WRONG_INVITE_CODE') %}
+                <p></p><p class="text-center text-danger">Wrong invite code</p>
+                {% endif %}
+                {% if error is defined and error == constant('AdventureTimeBundle\\Constants::USER_EXIST') %}
+                    <p></p><p class="text-center text-danger">User with login <strong>{{ username }}</strong> already exist</p>
+                {% endif %}
+                {{ form_widget(form.submit, {'attr': {'class': 'btn btn-success center-block'}}) }}
             </div>
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
+            <p class="text-center"><a href="{{ url('login') }}">I already have an account</a></p>
     {{ form_end(form) }}
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(function(){
+
+            function checkFields()
+            {
+                $('.mail-error').hide();
+                if(!testMail($('#registration_email').val())) {
+                    $('.mail-error').show('slow');
+                    return false;
+                }
+
+                return true;
+            }
+
+            $('#registration_email').on('focusout', checkFields);
+
+            function testMail(mail)
+            {
+                var reg = /\S+@\S+\.\S+/;
+                return mail.match(reg);
+            }
+
+            $('.registration-form').on('submit', checkFields)
+        })
+    </script>
 {% endblock %}
 
 

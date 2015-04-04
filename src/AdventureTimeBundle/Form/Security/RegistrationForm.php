@@ -37,7 +37,7 @@ class RegistrationForm extends AbstractType
                 ),
             ));
 
-        $builder->add('password_confirm', 'password',
+        $builder->add('invite_code', 'text',
             array('attr' =>
                 array(
                     'autofocus' => true,
@@ -50,7 +50,7 @@ class RegistrationForm extends AbstractType
 
         $builder->add('submit', 'submit',
             array(
-                'label' => 'Registration',
+                'label' => 'REGISTRATION',
             ));
     }
 

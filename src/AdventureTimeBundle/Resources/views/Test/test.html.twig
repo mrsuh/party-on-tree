@@ -11,15 +11,15 @@
 
                 {% for answer in question.answer %}
                     <div class="form-control center-block" style=" max-width: 300px; margin-top: 10px">
-                        <input type="radio" value="{{ answer.id }}" name="radio"/> {{ answer.name }}
+                        <input type="radio" class="hide" value="{{ answer.id }}" name="radio"/> {{ answer.name }}
                     </div>
                 {% endfor %}
 
             </div>
         {% endfor %}
-        <button type="button" class="next btn center-block" style="margin-top: 10px; min-width: 300px">Next</button>
+        <button type="button" class="next btn-success center-block" style="margin-top: 10px; min-width: 300px">NEXT</button>
         <div id="answer"></div>
-        <input type="submit" class="btn center-block" style="display: none; margin-top: 10px; min-width: 300px" value="Process">
+        <input type="submit" class="btn-success center-block" style="display: none; margin-top: 10px; min-width: 300px" value="PROCESS">
     </form>
 {% endblock %}
 
@@ -37,6 +37,8 @@
             $('.next').attr('disabled', true);
 
             $('.test .form-control').on('click', function(){
+                $('.test:visible .form-control').removeClass('active');
+                $(this).addClass('active');
                 $(this).children('input[type=radio]').prop('checked', true);
                 $('.next').attr('disabled', false);
             })
