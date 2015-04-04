@@ -7,11 +7,14 @@ class UserModel
 
     private $em;
     private $securityContext;
+    private $session;
 
-    public function __construct($em, $securityContext)
+
+    public function __construct($em, $securityContext, $session)
     {
         $this->em = $em;
         $this->securityContext;
+        $this->session = $session;
     }
 
     public function createUser($data)
@@ -30,19 +33,22 @@ class UserModel
         return (bool)$this->em->getRepository('AdventureTimeBundle:User')->findOneByUsername($username);
     }
 
-    public function setPersonageToUser($personage)
+    public function getUser()
     {
-        $username= $this->securityContext->getToken()->getUser()->getUsername();
-        $user = $this->em->getRepository('AdventureTimeBundle:User')->findOneByUsername($username);
-        $user->setPersonage($personage);
-        $personage = $this->em->getRepository('AdventureTimeBundle:Personage')->findOne($personage);
-        $personage->setActive(true);
-        $this->em->flush();
+        $username =  $this->session->get('username');
+        return $this->em->getRepository('AdventureTimeBundle:User')->findOneByUsername($username);
+
     }
 
-    public function getUserName()
-    {
-        return $this->securityContext->getToken()->getUser()->getUsername();
+    public function setPersonageToUser($personage){
+        $user = $this->getUser();
 
+        if(!$user || !is_null($user->getPersonage())) {
+            return;
+        }
+
+        $personage->setActive(true);
+        $user->setPersonage($personage);
+        $this->em->flush();
     }
 }

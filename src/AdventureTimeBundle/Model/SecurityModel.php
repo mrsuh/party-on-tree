@@ -8,17 +8,19 @@ use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 class SecurityModel
 {
 
-    protected $tokenStorage;
-    protected $em;
-    protected $userModel;
-    protected $mailModel;
+    private $tokenStorage;
+    private $em;
+    private $userModel;
+    private $mailModel;
+    private $session;
 
-    public function __construct($tokenStorage, $em, $userModel, $mailModel)
+    public function __construct($tokenStorage, $em, $userModel, $mailModel, $session)
     {
         $this->tokenStorage = $tokenStorage;
         $this->em = $em;
         $this->userModel = $userModel;
         $this->mailModel = $mailModel;
+        $this->session = $session;
     }
 
     public function registration($data)
@@ -32,6 +34,8 @@ class SecurityModel
             $this->authorize($data['username'], $data['role']);
             $this->em->flush();
             $this->em->getConnection()->commit();
+            $this->session->set('username', $data['username']);
+
         } catch (\Exception $e) {
             $this->em->getConnection()->rollback();
             throw new \Exception(__FUNCTION__ . ': ' . $e->getMessage());

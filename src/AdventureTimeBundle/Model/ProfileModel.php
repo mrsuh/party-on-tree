@@ -6,12 +6,20 @@ class ProfileModel
 {
 
     private $em;
-    private $securityContext;
+    private $userModel;
 
-    public function __construct($em, $securityContext)
+    public function __construct($em, $userModel)
     {
         $this->em = $em;
-        $this->securityContext;
+        $this->userModel = $userModel;
     }
+
+    public function hasUserPersonage()
+    {
+        $user = $this->userModel->getUser();
+
+        return !is_null($user->getPersonage());
+    }
+
 
 }

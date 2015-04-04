@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ошибка: {{ status_text }}</title>
+    <link rel='stylesheet' href="{{ asset("css/bootstrap.min.css") }}" type='text/css' media='all'>
+    <link rel='stylesheet' href="{{ asset("css/style.css") }}" type='text/css' media='all'>
+</head>
+<body>
+
+
+    <div class="row">
+        <div class="col-md-2 col-sm-2"></div>
+        <div class="col-md-3 col-sm-2">
+            <img src="{{ asset('img/err.png') }}" class="img-responsive center-block" style="margin-top: 40px">
+        </div>
+        <div class="col-md-5 col-sm-2 err">
+        <div class="code">{{ status_code }}</div>
+        <div class="message">Something is wrong(</div>
+        </div>
+        <div class="col-md-2 col-sm-2 message"></div>
+    </div>
+
+
+</body>
+</html>

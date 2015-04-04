@@ -16,13 +16,25 @@ h3
 
 body
 {
-background-color: #9fc122;
+background-color: #bae4da;
 }
 
-.nav h3:hover {
+.nav h3:hover
+{
     color: #ffffff;
 }
 
-.nav .active {
+.nav .active
+{
     color: #ffffff;
+}
+
+.err .code
+{
+    font-size: 10em;
+}
+
+.err .message
+{
+    font-size: 3em;
 }

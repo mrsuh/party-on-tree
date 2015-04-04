@@ -20,7 +20,7 @@ class QuestionModel
         $count = 1;
 
         $total = count($questions);
-
+        shuffle($questions);
         foreach($questions as $q) {
             $answers = $this->em->getRepository('AdventureTimeBundle:Answer')->findByQuestion($q);
             $data[$count] = array(
@@ -69,7 +69,7 @@ class QuestionModel
             }
         }
 
-        return $personage->getName();
+        return $personage;
     }
 
 }

@@ -2,7 +2,15 @@
 {% block content %}
 
 {% for personage in personages %}
-    <img src="{{ asset('img/personages/' ~ personage.img ~ '.png') }}" class="img-responsive" style="width: 200px; display:inline">
+    <a href="{{ url('personage', {'personage': personage.img }) }}" > <img src="{{ asset('img/personages/' ~ personage.img ~ '.png') }}" class="img-responsive" style="width: 200px; display:none"></a>
 {% endfor %}
 
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(function(){
+            $('img').show('slow');
+        });
+    </script>
 {% endblock %}

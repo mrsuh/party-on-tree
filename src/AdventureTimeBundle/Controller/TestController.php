@@ -12,13 +12,10 @@ class TestController extends Controller
             $answers = $request->request->get('answer');
             if($answers) {
                 $personage = $this->get('model.question')->processAnswers($answers);
-
-                return $this->redirect($this->generateUrl('personage', array('personage' => $personage)));
+                $this->get('model.user')->setPersonageToUser($personage);
+                return $this->redirect($this->generateUrl('personage', array('personage' => $personage->getName())));
             }
-
-
         }
-
 
         return $this->render('AdventureTimeBundle:Test:test.html.twig', array('questions' => $this->get('model.question')->getQuestions()));
     }

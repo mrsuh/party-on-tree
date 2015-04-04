@@ -1,15 +1,19 @@
 services:
     model.user:
         class: AdventureTimeBundle\Model\UserModel
-        arguments: [@doctrine.orm.entity_manager, @security.context]
+        arguments: [@doctrine.orm.entity_manager, @security.context, @session]
 
     model.security:
         class: AdventureTimeBundle\Model\SecurityModel
-        arguments: ["@security.context", @doctrine.orm.entity_manager ,@model.user, @model.mail]
+        arguments: ["@security.context", @doctrine.orm.entity_manager ,@model.user, @model.mail, @session]
 
     model.mail:
         class: AdventureTimeBundle\Model\MailModel
         arguments: [@mailer, %mailer_user%]
+
+    model.profile:
+        class: AdventureTimeBundle\Model\ProfileModel
+        arguments: [@@doctrine.orm.entity_manager, @model.user]
 
     model.question:
         class: AdventureTimeBundle\Model\QuestionModel

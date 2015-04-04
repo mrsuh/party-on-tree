@@ -1,6 +1,11 @@
 {% extends "AdventureTimeBundle::layout.html.twig" %}
 {% block content %}
-<h1>hello {{ username }}</h1>
+<h1>hello {{ user.username }}</h1>
+    {% if user.personage == null %}
+        У вас еще нет персонажа, хотите пройти <a href="{{ url('test') }}">тест</a>, чтобы выяснить кто вы из Adventure Time?
+{% endif %}
+    <img src="{{ asset('img/personages/' ~ user.personage.name ~ '.png') }}" class="img-responsive center-block" style="width: 300px">
+{{ user.email }}
 {% endblock %}
 
 {% block js %}
