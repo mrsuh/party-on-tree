@@ -45,14 +45,14 @@ class Personage
     /**
      * @var string
      *
-     * @ORM\Column(name="sex", type="string", length=255)
+     * @ORM\Column(name="age", type="string", length=255)
      */
     private $age;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sex", type="string", length=255)
+     * @ORM\Column(name="race", type="string", length=255)
      */
     private $race;
 

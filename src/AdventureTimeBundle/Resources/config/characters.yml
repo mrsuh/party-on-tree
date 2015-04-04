@@ -6,7 +6,7 @@ parameters:
             sex: male
             age: 16
             race: Human
-         2:
+        2:
             name: Jake
             name_ru: Джейк
             sex: male
