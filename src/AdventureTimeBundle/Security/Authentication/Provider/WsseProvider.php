@@ -12,11 +12,13 @@ class WsseProvider implements AuthenticationProviderInterface
 {
     private $userProvider;
     private $cacheDir;
+    private $session;
 
-    public function __construct(UserProviderInterface $userProvider, $cacheDir)
+    public function __construct(UserProviderInterface $userProvider, $cacheDir, $session)
     {
         $this->userProvider = $userProvider;
         $this->cacheDir = $cacheDir;
+        $this->session = $session;
     }
 
     public function authenticate(TokenInterface $token)
@@ -26,7 +28,7 @@ class WsseProvider implements AuthenticationProviderInterface
         if ($encoder->isPasswordValid($user->getPassword(), $token->pass, $user->getSalt())) {
             $authenticatedToken = new WsseToken(array($user->getRoles()->getName()));
             $authenticatedToken->setUser($user->getUsername());
-
+            $this->session->set('username', $token->getUsername());
             return $authenticatedToken;
         }
 

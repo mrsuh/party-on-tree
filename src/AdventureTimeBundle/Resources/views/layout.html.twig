@@ -3,44 +3,65 @@
 <head>
     <meta charset="utf-8">
     <title>Party on the tree</title>
+
+    <style>
+        @font-face {
+            font-family: AvenirNext;
+            src: url({{ asset("fonts/AvenirNextCyr-Thin.otf") }});
+        }
+
+        .header {
+            background-color: #abdecf;
+        }
+
+        .content {
+            background-image: url({{ asset('img/bg2.png') }});
+            background-repeat: no-repeat;
+            background-color: #9fc122;
+        }
+
+    </style>
     <link rel='stylesheet' href="{{ asset("css/bootstrap.min.css") }}" type='text/css' media='all'>
     <link rel='stylesheet' href="{{ asset("css/style.css") }}" type='text/css' media='all'>
 </head>
 <body>
 <div class="header">
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-3">
-            <img src="{{ asset('img/logo.png') }}" class="img-responsive center-block" alt="Responsive image" style="margin-top: 10px">
+        <div class="col-md-3"></div>
+        <div style="max-width: 900px" class="text-center">
+            <div class="col-md-3">
+                <img src="{{ asset('img/logo.png') }}" class="img-responsive center-block" alt="Responsive image"
+                     style="margin-top: 10px">
             </div>
-        <div class="col-md-5">
-            <img src="{{ asset('img/wellcome.png') }}" class="img-responsive center-block" alt="Responsive image" style="margin-top: 40px">
+            <div class="col-md-4">
+                <div id="welcome" class="text-center">Welcome</div>
+                <div id="party-on-tree" class="text-center">Party&nbspOn&nbspThe&nbspTree</div>
+            </div>
         </div>
-        <div class="col-md-4"></div>
-        </div>
+    </div>
 
-    <div class="row" style="margin-top: 15px">
+    <div class="row nav" style="margin-top: 15px">
 
         <div class="col-md-2 col-sm-2"></div>
         <div class="col-md-2 col-sm-2">
-            <a href="{{ url('personages') }}" class="btn center-block " style="min-width:120px"><h3>Сharacters</h3></a>
+            <a href="{{ url('personages') }}" class="btn center-block" style="min-width:120px"><h3 {% if path(app.request.attributes.get('_route')) == path('personages') %} class="active" {% endif %}>Сharacters</h3></a>
         </div>
         <div class="col-md-2 col-sm-2">
-            <a href="{{ url('test') }}" class="btn  center-block" style="min-width:120px"><h3>Test</h3></a>
+            <a href="{{ url('test') }}" class="btn  center-block" style="min-width:120px"><h3 {% if path(app.request.attributes.get('_route')) == path('test') %} class="active" {% endif %}>Test</h3></a>
         </div>
         <div class="col-md-2 col-sm-2">
-            <a href="{{ url('information') }}" class="btn center-block" style="min-width:120px"><h3>About us</h3></a>
+            <a href="{{ url('information') }}" class="btn center-block" style="min-width:120px"><h3 {% if path(app.request.attributes.get('_route')) == path('information') %} class="active" {% endif %}>About us</h3></a>
         </div>
         <div class="col-md-2 col-sm-2">
-            <a href="{{ url('logout') }}" class="btn center-block" style="min-width:120px"><h3>Profile</h3></a>
+            <a href="{{ url('profile') }}" class="btn center-block" style="min-width:120px"><h3 {% if path(app.request.attributes.get('_route')) == path('profile') %} class="active" {% endif %}>Profile</h3></a>
         </div>
         <div class="col-md-2 col-sm-2"></div>
 
     </div>
 </div>
 
-<div class="content">
-    <div class="row" style="margin-top: 15px">
+<div class="content" style="min-height: 300px">
+    <div class="row">
 
         <div class="col-md-2 col-sm-2"></div>
         <div class="col-md-8 col-sm-2">

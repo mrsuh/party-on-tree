@@ -1,4 +1,28 @@
-
-h3 {
+h3
+{
     color: #333745;
+}
+
+#welcome
+{
+    font-size: 7em;
+}
+
+#party-on-tree
+{
+    /*font-family: AvenirNext;*/
+    font-size: 3.5em;
+}
+
+body
+{
+background-color: #9fc122;
+}
+
+.nav h3:hover {
+    color: #ffffff;
+}
+
+.nav .active {
+    color: #ffffff;
 }

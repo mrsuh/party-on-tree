@@ -21,7 +21,7 @@ class SecurityController extends Controller
         } else {
 
            if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_USER)) {
-                return $this->redirect($this->generateUrl('user'));
+                return $this->redirect($this->generateUrl('profile'));
             }
 
             return $this->render('AdventureTimeBundle:Security:login.html.twig', array('last_username' => null, 'error' => false,));

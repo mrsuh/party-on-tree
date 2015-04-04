@@ -6,6 +6,7 @@ class ProfileController extends Controller
 {
     public function profileAction()
     {
-        return $this->render('AdventureTimeBundle:Profile:profile.html.twig');
+        $username = $this->get('session')->get('username');
+        return $this->render('AdventureTimeBundle:Profile:profile.html.twig', array('username'=> $username));
     }
 }

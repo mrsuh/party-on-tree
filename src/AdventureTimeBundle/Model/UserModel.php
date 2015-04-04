@@ -39,4 +39,10 @@ class UserModel
         $personage->setActive(true);
         $this->em->flush();
     }
+
+    public function getUserName()
+    {
+        return $this->securityContext->getToken()->getUser()->getUsername();
+
+    }
 }

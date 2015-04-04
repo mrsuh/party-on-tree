@@ -2,20 +2,24 @@
 {% block content %}
     <form action="{{ url('test') }}" method="post">
         {% for key, question in questions %}
-            <div class="test" data-next="{{ key + 1 }} " id="{{ key }}" style="display: none">
+            {% set next = key %}
+            {% if next !=  question.total %}
+                {% set next = key + 1 %}
+        {% endif %}
+            <div class="test text-center" data-next="{{ next }} " id="{{ key }}" style="display: none; width: 100%">
                 <h3>Question {{ key }} in {{ question.total }}</h3>{{ question.question }}
 
                 {% for answer in question.answer %}
-                    <div class="form-control center-block" style="margin: 10px 0px">
+                    <div class="form-control center-block" style=" max-width: 300px; margin-top: 10px">
                         <input type="radio" value="{{ answer.id }}" name="radio"/> {{ answer.name }}
                     </div>
                 {% endfor %}
 
             </div>
         {% endfor %}
-        <button type="button" class="next btn">Next</button>
+        <button type="button" class="next btn center-block" style="margin-top: 10px; min-width: 300px">Next</button>
         <div id="answer"></div>
-        <input type="submit">
+        <input type="submit" class="btn center-block" style="display: none; margin-top: 10px; min-width: 300px" value="Process">
     </form>
 {% endblock %}
 
@@ -28,28 +32,37 @@
             $('#1').show('slow');
         }
 
-        function checkButtons() {
+        function checkButtons()
+        {
             $('.next').attr('disabled', true);
 
-            $('.test input[type=radio]').on('click', function () {
+            $('.test .form-control').on('click', function(){
+                $(this).children('input[type=radio]').prop('checked', true);
                 $('.next').attr('disabled', false);
-
-            });
+            })
         }
+
         checkButtons();
+
+
         function nextQuestion() {
             checkButtons();
 
             $('.next').on('click', function () {
-
+                $('.next').attr('disabled', true);
                 var next = $('.test:visible').data('next');
-                var id = next - 1;
-                console.log(next);
+                var id = $('.test:visible').attr('id');
                 getAnswer(id);
 
-                $('#' + id).hide('slow');
-                $('#' + next).show('slow');
-
+                if(parseInt(next) == parseInt(id)){
+                    $('#' + id).hide('slow');
+                    $('.next').hide('slow');
+                    $('input[type="submit"]').show('slow');
+                    $('done').show('slow');
+                } else {
+                    $('#' + id).hide('slow');
+                    $('#' + next).show('slow');
+                }
             })
         }
 
@@ -58,8 +71,6 @@
         }
 
         function addHiddenInput(answer) {
-            console.log('ans' + answer);
-
             $('#answer').append('<input type="hidden" name="answer[' + answer + ']" value="' + answer + '"/>');
         }
 
