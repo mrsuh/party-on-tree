@@ -258,7 +258,14 @@ parameters:
                         6: Ghost_Princess
                         7: Lollypop_Girl
                 3:
-                    name: Я еще не определилсо
+                    name: Не знаю
+                    personage:
+                        1: BMO
+                        2: Gunter
+                        3: Cosmic_Owl
+
+                4:
+                    name: Я еще не определился
                     personage:
                         1: BMO
                         2: Gunter
