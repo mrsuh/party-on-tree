@@ -1,0 +1,63 @@
+{% extends "AdventureTimeBundle::layout.html.twig" %}
+{% block content %}
+    <div class="row" style="width:100%">
+
+        <div class="col-md-5 ">
+            {% if user.personage is null %}
+                У вас еще нет персонажа, хотите пройти <a
+                    href="{{ url('test') }}">тест</a>, чтобы выяснить кто вы из Adventure Time?
+            {% else %}
+
+                <img src="{{ asset('img/personages/' ~ user.personage.name ~ '.png') }}"
+                     class="img-responsive center-block" style="width: 300px">
+            {% endif %}
+
+        </div>
+        <div class="col-md-7">
+            <table style="width:100%">
+                <tr>
+                    <td><h3>Login</h3></td>
+                    <td><h3>{{ user.username }}</h3></td>
+
+                </tr>
+                <tr>
+                    <td><h3>Email</h3></td>
+                    <td><h3>{{ user.email }}</h3></td>
+                </tr>
+                {% if user.personage is not null %}
+                    <tr>
+                        <td><h3>Name</h3></td>
+                        <td><h3>{{ user.personage.name }}</h3></td>
+                    </tr>
+
+                    <tr>
+                        <td><h3>Sex</h3></td>
+                        <td><h3>{{ user.personage.sex }}</h3></td>
+                    </tr>
+
+                    <tr>
+                        <td><h3>Age</h3></td>
+                        <td><h3>{{ user.personage.sex }}</h3></td>
+                    </tr>
+
+                    <tr>
+                        <td><h3>Race</h3></td>
+                        <td><h3>{{ user.personage.race }}</h3></td>
+                    </tr>
+                {% endif %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+<div class="row" style="width:100%">
+    <p><p><p><p class="text-center"><a href="{{ url('logout') }}" >Sign out</a></p>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

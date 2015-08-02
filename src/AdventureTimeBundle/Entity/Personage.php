@@ -1,4 +1,6 @@
-<?php namespace AdventureTimeBundle\Entity;
+<?php
+
+namespace AdventureTimeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,15 +31,43 @@ class Personage
     /**
      * @var string
      *
-     * @ORM\Column(name="colour", type="string", length=255)
+     * @ORM\Column(name="nameRussian", type="string", length=255)
      */
-    private $colour;
+    private $nameRussian;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sex", type="string", length=255)
+     */
+    private $sex;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="age", type="string", length=255)
+     */
+    private $age;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="race", type="string", length=255)
+     */
+    private $race;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean")
+     */
+    private $active;
 
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -60,7 +90,7 @@ class Personage
     /**
      * Get name
      *
-     * @return string
+     * @return string 
      */
     public function getName()
     {
@@ -68,25 +98,104 @@ class Personage
     }
 
     /**
-     * Set colour
+     * Set nameRussian
      *
-     * @param string $colour
+     * @param string $nameRussian
      * @return Personage
      */
-    public function setColour($colour)
+    public function setNameRussian($nameRussian)
     {
-        $this->colour = $colour;
+        $this->nameRussian = $nameRussian;
 
         return $this;
     }
 
     /**
-     * Get colour
+     * Get nameRussian
      *
+     * @return string 
+     */
+    public function getNameRussian()
+    {
+        return $this->nameRussian;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Personage
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
      * @return string
      */
-    public function getColour()
+    public function getSex()
     {
-        return $this->colour;
+        return $this->sex;
     }
+
+    /**
+     * @param string $sex
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param string $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRace()
+    {
+        return $this->race;
+    }
+
+    /**
+     * @param string $race
+     */
+    public function setRace($race)
+    {
+        $this->race = $race;
+
+        return $this;
+    }
+
+
 }

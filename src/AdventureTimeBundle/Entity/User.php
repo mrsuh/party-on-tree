@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * User
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AdventureTimeBundle\Repository\UserRepository")
  */
 class User implements UserInterface, \Serializable
 {
@@ -30,6 +30,13 @@ class User implements UserInterface, \Serializable
     /**
      * @var string
      *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
@@ -48,6 +55,14 @@ class User implements UserInterface, \Serializable
      * @ORM\JoinColumn(name="role", referencedColumnName="id")
      */
     private $role;
+
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="\AdventureTimeBundle\Entity\Personage")
+     * @ORM\JoinColumn(name="personage", referencedColumnName="id")
+     */
+    private $personage;
 
 
     /**
@@ -148,6 +163,38 @@ class User implements UserInterface, \Serializable
     public function eraseCredentials()
     {
 
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPersonage()
+    {
+        return $this->personage;
+    }
+
+    /**
+     * @param string $personage
+     */
+    public function setPersonage($personage)
+    {
+        $this->personage = $personage;
     }
 
     public function serialize()

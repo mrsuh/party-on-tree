@@ -2,9 +2,8 @@
 
 class MailModel
 {
-
-    protected $mailer;
-    protected $mail;
+    private $mailer;
+    private $mail;
 
     public function __construct($mailer, $mail)
     {

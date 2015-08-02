@@ -23,7 +23,6 @@ class WsseListener implements ListenerInterface
     public function handle(GetResponseEvent $event)
     {
         $request = $event->getRequest();
-
         if (!(($usr = $request->get(Constants::WSSE_NAME)) && ($pass = $request->get(Constants::WSSE_PASS)))) {
             return;
         }

@@ -1,0 +1,9 @@
+{% extends "AdventureTimeBundle::layout.html.twig" %}
+{% block content %}
+{% for personage in personages %}
+    <a href="{{ url('personage', {'id': personage.id }) }}" >
+        <img src="{{ asset('img/personages/' ~ personage.name ~ '.png') }}"
+             class="img-responsive" style="max-width: 200px; float: left"></a>
+{% endfor %}
+
+{% endblock %}

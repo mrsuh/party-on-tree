@@ -1,15 +1,22 @@
-{% extends "AdventureTimeBundle:Security:layout.html.twig" %}
+{% extends "AdventureTimeBundle::layout.html.twig" %}
 {% block content %}
     <form action="{{ url('login_check') }}" method="POST">
+        <div class="form-group login" style="width: 100%">
+            <input type="text" class="form-control center-block" id="username"
+                   name="{{ constant('AdventureTimeBundle\\Constants::WSSE_NAME') }}" value="{{ last_username }}"
+                   placeholder="login" required="true"/>
+            <input type="password" class="form-control center-block" id="password"
+                   name="{{ constant('AdventureTimeBundle\\Constants::WSSE_PASS') }}" placeholder="password"
+                   required="true"/>
 
-        <input type="text" id="username" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_NAME') }},"
-               value="{{ last_username }}" placeholder="email" required="true"/>
+            {% if error == true %}
+               <p><p class="text-danger text-center">Login or password are incorrect</p>
+            {% endif %}
 
-        <input type="password" id="password" name="{{ constant('AdventureTimeBundle\\Constants::WSSE_PASS') }}"
-               placeholder="password" required="true"/>
-        <input type="submit" name="login" value="Войти"/>
-        {% if error == 'true' %}
-            неверный логин или пароль
-        {% endif %}
+            <input type="submit" class="btn btn-success access center-block" name="login" value="SIGN IN"/>
+
+
+            <p><p class="text-center"><a href="{{ url('registration') }}">Registration</a></p>
+        </div>
     </form>
 {% endblock %}

@@ -1,0 +1,153 @@
+parameters:
+    characters:
+        1:
+            name: Finn
+            name_ru: Фин Человек
+            sex: male
+            age: 16
+            race: Human
+        2:
+            name: Jake
+            name_ru: Джейк
+            sex: male
+            age: 28 (волшебных собачьих лет)
+            race: dog
+        3:
+            name: Princess_Booblegum
+            name_ru: Принцесса Бубльгум
+            sex: female
+            age: 19 (текущий возраст)
+            race: Конфетный народ
+        4:
+            name: Ice_King
+            name_ru: Ледяной король
+            sex: male
+            age: 1043
+            race: Человек(ранее) Волшебник
+        5:
+            name: Lady_Raincorn
+            name_ru: Леди ливнерог
+            sex: female
+            age: Неизвестен
+            race: Ливнероги
+        6:
+            name: Marceline
+            name_ru: Марселин
+            sex: female
+            age: 1003
+            race: Гибрид вампира и демона
+        7:
+            name: Lumpy_Space_Princess
+            name_ru: ППК
+            sex: female
+            age: 15
+            race: Пупырчатые люди
+        8:
+            name: BMO
+            name_ru: БИМО
+            sex: male
+            age: Неизвестен
+            race: Робот
+        9:
+            name: Gunter
+            name_ru: Гюнтер
+            sex: male
+            age: Неизвестен
+            race: Пингвин
+        10:
+            name: Earl_Of_Lemongrab
+            name_ru: Лемон
+            sex: male
+            age: Неизвестен
+            race: Лемон
+        11:
+            name: Flame_Princess
+            name_ru: Принцесса пламя
+            sex: female
+            age: 15
+            race: Пламенные люди
+
+        12:
+            name: Pappermit_Butler
+            name_ru: Мятный лакей
+            sex: male
+            age: Неизвестен
+            race: Конфетный народ
+            
+        13:
+            name: Lich
+            name_ru: Лич
+            sex: male
+            age: Неизвестен
+            race: Нежить
+
+        14:
+            name: Flambo
+            name_ru: Фламбо
+            sex: male
+            age: Неизвестен
+            race: Пламенные люди
+        15:
+            name: Hunson_Abadeer
+            name_ru: Хансон Абадир
+            sex: male
+            age: Бессмертный
+            race: Демон
+        16:
+            name: Cinnamon_Bun
+            name_ru: Коричный пряник
+            sex: male
+            age: 30 лет
+            race: Конфетный народ
+
+        17:
+            name: Party_God
+            name_ru: Бог вчероинок
+            sex: male
+            age: Неизвестен
+            race: Божество
+        18:
+            name: Ghost_Princess
+            name_ru: Принцесса призрак
+            sex: female
+            age: Неизвестен
+            race: Призрак
+        19:
+            name: Party_Pat
+            name_ru: Мишка тусовщик
+            sex: male
+            age: Неизвестен
+            race: Медведь
+
+        20:
+            name: Lollypop_Girl
+            name_ru: Деовчка леденец
+            sex: female
+            age: Неизвестен
+            race: конфетный народ
+            
+        21:
+            name: Prismo
+            name_ru: Призмо
+            sex: male
+            age: жив
+            race: дух
+        22:
+            name: Billy
+            name_ru: Билли
+            sex: male
+            age: мёртв
+            race: неизвестна
+
+        23:
+            name: Cosmic_Owl
+            name_ru: Космческая сова
+            sex: female
+            age: Неизвестен
+            race: неизвестна
+        24:
+            name: Starchy
+            name_ru: ХЗ
+            sex: male
+            age: Неизвестен
+            race: конфетный народ

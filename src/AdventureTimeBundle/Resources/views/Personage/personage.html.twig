@@ -1,0 +1,28 @@
+{% extends "AdventureTimeBundle::layout.html.twig" %}
+{% block content %}
+        <div class="col-md-5 col-sm-12">
+            <img src="{{ asset('img/personages/' ~ personage.name ~ '.png') }}"
+                 class="img-responsive center-block">
+        </div>
+
+        <div class="col-md-7 col-sm-12">
+            <table class="table text-center">
+                <tr>
+                    <td><h4>Name:</h4></td>
+                    <td><h4>{{ personage.name }}</h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Sex:</h4></td>
+                    <td><h4>{{ personage.sex }}</h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Age:</h4></td>
+                    <td><h4>{{ personage.age }}</h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Race:</h4></td>
+                    <td><h4>{{ personage.race }}</h4></td>
+                </tr>
+            </table>
+        </div>
+{% endblock %}

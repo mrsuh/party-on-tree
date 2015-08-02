@@ -11,7 +11,7 @@ class SecurityController extends Controller
 {
     public function loginAction(Request $request)
     {
-        if ($request->attributes->has(Security::AUTHENTICATION_ERROR) || $this->get('session')->get(Security::AUTHENTICATION_ERROR)) {
+        if ($request->attributes->has(Security::AUTHENTICATION_ERROR)) {
             $authenticationUtils = $this->get('security.authentication_utils');
             $lastUsername = $authenticationUtils->getLastUsername();
             $this->get('session')->remove(Security::AUTHENTICATION_ERROR);
@@ -20,10 +20,8 @@ class SecurityController extends Controller
 
         } else {
 
-            if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_ADMIN)) {
-                return $this->redirect($this->generateUrl('admin'));
-            } else if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_USER)) {
-                return $this->redirect($this->generateUrl('user'));
+           if ($this->get('security.authorization_checker')->isGranted(Constants::ROLE_USER)) {
+                return $this->redirect($this->generateUrl('profile'));
             }
 
             return $this->render('AdventureTimeBundle:Security:login.html.twig', array('last_username' => null, 'error' => false,));
@@ -38,21 +36,27 @@ class SecurityController extends Controller
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             $formData = $form->getData();
+
+            if(!$this->get('model.security')->isValidCode($formData['invite_code'])) {
+                return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView(), 'error' => Constants::WRONG_INVITE_CODE));
+            }
+
             $formData['role'] = Constants::ROLE_USER;
             if ($this->get('model.security')->registration($formData)) {
-                $username = $formData['username'];
-                $password = $formData['password'];
-                $data = array('subject' => 'Registration', 'mail' => $formData['username'], 'body' => $this->renderView('AdventureTimeBundle:Mail:registration.html.twig', array('username' => $username, 'pass' => $password)),);
+                $data = array(
+                    'subject' => 'Registration',
+                    'mail' => $formData['email'],
+                    'body' => $this->renderView('AdventureTimeBundle:Mail:registration.html.twig', array('username' => $formData['username'], 'pass' => $formData['password']))
+                );
                 $this->get('model.mail')->sendMail($data);
-
-                return $this->redirect($this->generateUrl('user'));
+                return $this->redirect($this->generateUrl('profile'));
 
             } else {
-                return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView(), 'error' => true,));
+                return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView(), 'error' => Constants::USER_EXIST, 'username' => $formData['username']));
             }
         }
 
-        return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView(), 'error' => false,));
+        return $this->render('AdventureTimeBundle:Security:registration.html.twig', array('form' => $form->createView()));
     }
 
     public function rememberPassAction(Request $request)

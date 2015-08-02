@@ -1,18 +1,20 @@
 <?php namespace AdventureTimeBundle\Model;
 
 use AdventureTimeBundle\Constants;
-use AdventureTimeBundle\Entity\User;
-use Symfony\Component\Finder\Exception\AccessDeniedException;
-use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
 class UserModel
 {
 
-    protected $em;
+    private $em;
+    private $securityContext;
+    private $session;
 
-    public function __construct($em)
+
+    public function __construct($em, $securityContext, $session)
     {
         $this->em = $em;
+        $this->securityContext;
+        $this->session = $session;
     }
 
     public function createUser($data)
@@ -20,18 +22,8 @@ class UserModel
         if ($this->isUserExist($data['username'])) {
             throw new \Exception(__FUNCTION__ . ' USER_EXIST');
         }
-        $role = $this->em->getRepository('AdventureTimeBundle:Role')->findOneByName($data['role']);
 
-        $user = new User();
-        $user->setUsername($data['username']);
-        $user->setSalt(md5(time()));
-
-        $encoder = new MessageDigestPasswordEncoder('sha512', true, 10);
-        $password = $encoder->encodePassword($data['password'], $user->getSalt());
-        $user->setPassword($password);
-        $user->setRoles($role);
-
-        $this->em->persist($user);
+        $this->em->getRepository('AdventureTimeBundle:User')->createUser($data);
 
         return Constants::OK;
     }
@@ -39,5 +31,24 @@ class UserModel
     public function isUserExist($username)
     {
         return (bool)$this->em->getRepository('AdventureTimeBundle:User')->findOneByUsername($username);
+    }
+
+    public function getUser()
+    {
+        $username =  $this->session->get('username');
+        return $this->em->getRepository('AdventureTimeBundle:User')->findOneByUsername($username);
+
+    }
+
+    public function setPersonageToUser($personage){
+        $user = $this->getUser();
+
+        if(!$user || !is_null($user->getPersonage())) {
+            return;
+        }
+
+        $personage->setActive(true);
+        $user->setPersonage($personage);
+        $this->em->flush();
     }
 }

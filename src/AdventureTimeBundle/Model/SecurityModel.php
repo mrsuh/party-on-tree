@@ -8,30 +8,36 @@ use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 class SecurityModel
 {
 
-    protected $tokenStorage;
-    protected $em;
-    protected $userModel;
-    protected $mailModel;
+    private $tokenStorage;
+    private $em;
+    private $userModel;
+    private $mailModel;
+    private $session;
 
-    public function __construct($tokenStorage, $em, $userModel, $mailModel)
+    public function __construct($tokenStorage, $em, $userModel, $mailModel, $session)
     {
         $this->tokenStorage = $tokenStorage;
         $this->em = $em;
         $this->userModel = $userModel;
         $this->mailModel = $mailModel;
+        $this->session = $session;
     }
 
     public function registration($data)
     {
+        if ($this->userModel->isUserExist($data['username'])) {
+        return false;
+        }
+
         try {
             $this->em->getConnection()->beginTransaction();
-            if ($this->userModel->isUserExist($data['username'])) {
-                return false;
-            }
+
             $this->userModel->createUser($data);
             $this->authorize($data['username'], $data['role']);
             $this->em->flush();
             $this->em->getConnection()->commit();
+            $this->session->set('username', $data['username']);
+            $this->setUnValidCode($data['invite_code']);
         } catch (\Exception $e) {
             $this->em->getConnection()->rollback();
             throw new \Exception(__FUNCTION__ . ': ' . $e->getMessage());
@@ -45,7 +51,7 @@ class SecurityModel
         $out = false;
         $code = $this->em->getRepository('AdventureTimeBundle:Code')->findOneByCode($data);
         if ($code) {
-            $out = (bool)$code->getIsValid();
+            $out = $code->getIsValid();
         }
 
         return $out;
@@ -55,7 +61,7 @@ class SecurityModel
     {
         $code = $this->em->getRepository('AdventureTimeBundle:Code')->findOneByCode($data);
         $code->setIsValid(false);
-        $this->em->commit();
+        $this->em->flush();
     }
 
     public function authorize($user, $role)
