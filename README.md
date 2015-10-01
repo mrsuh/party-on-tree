@@ -1,6 +1,4 @@
-PARTY ON TREE
-========================
+Party on tree
+=============
 
-Just for fun
-
-http://party-on-tree.ru/
+Cheerful site for fans of the cartoon "adventure time" and test "who you are cartoon characters?"
