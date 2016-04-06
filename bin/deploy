@@ -1,0 +1,20 @@
+#!/bin/sh
+
+cd "$( cd `dirname $0` && pwd )/.."
+
+if [ `command -v composer` ]; then
+    composer install
+else
+    if [ ! -e "composer.phar" ] ; then
+        php -r "readfile('https://getcomposer.org/installer');" | php
+    else
+        php composer.phar self-update
+    fi
+    php composer.phar install
+fi
+
+if [ "1" = "$#" ] && [ "install" = "$1" ]; then
+    sh bin/install;
+else
+    sh bin/update;
+fi

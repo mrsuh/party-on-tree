@@ -19,6 +19,9 @@
 /var/bootstrap.php.cache
 /bin/*
 !bin/console
+!bin/deploy
+!bin/install
+!bin/update
 !bin/symfony_requirements
 /vendor/
 
