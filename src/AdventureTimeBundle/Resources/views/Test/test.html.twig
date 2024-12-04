@@ -75,7 +75,7 @@
                         }
                     }
                     
-                    return window.window.location.href = '/characters/' + result + '.html';
+                    return window.window.location.href = '{{ _self.url('/characters/') }}' + result + '.html';
                 }
 
                 $('#' + id).hide();

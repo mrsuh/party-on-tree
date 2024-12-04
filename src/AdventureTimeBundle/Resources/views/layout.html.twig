@@ -1,14 +1,17 @@
+{% macro url(path) %}
+    {{- urlPrefix ~ path -}}
+{% endmacro %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Party on the tree</title>
 
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="{{ _self.url('/bootstrap.min.css') }}">
 
     <style>
         body {
-            background-image: url('img/bg2.png');
+            background-image: url('{{ _self.url('/img/bg2.png') }}');
             background-repeat: no-repeat;
             background-color: #bae4da;
         }
@@ -26,18 +29,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/party-on-tree/index.html">Party on tree</a>
+            <a class="navbar-brand" href="{{ _self.url('/index.html') }}">Party on tree</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="/party-on-tree/index.html">Сharacters</a></li>
+                    <a href="{{ _self.url('/index.html') }}">Сharacters</a></li>
                 <li>
-                    <a href="/party-on-tree/test.html">Test</a></li>
+                    <a href="{{ _self.url('/test.html') }}">Test</a></li>
                 <li>
-                    <a href="/party-on-tree/about.html">About</a></li>
+                    <a href="{{ _self.url('/about.html') }}">About</a></li>
             </ul>
         </div>
     </div>
@@ -48,8 +51,8 @@
 </div>
 <div class="col-md-2"></div>
 </body>
-<script src="jquery-1.11.3.min.js"></script>
-<script src="bootstrap.min.js"></script>
+<script src="{{ _self.url('/jquery-1.11.3.min.js') }}"></script>
+<script src="{{ _self.url('/bootstrap.min.js') }}"></script>
 
 {% block js %}
 {% endblock %}

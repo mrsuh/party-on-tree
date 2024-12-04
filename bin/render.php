@@ -9,6 +9,7 @@ $dataDirectory = realpath(__DIR__ . '/../src/AdventureTimeBundle/Resources/confi
 $publicDirectory = realpath(__DIR__ . '/../docs');
 
 $twig = new \Twig\Environment(new \Twig\Loader\FilesystemLoader($templateDirectory));
+$twig->addGlobal('urlPrefix', '/party-on-tree');
 
 $charactersDirectory = $publicDirectory . '/characters';
 if(!is_dir($charactersDirectory)) {
