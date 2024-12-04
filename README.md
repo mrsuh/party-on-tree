@@ -10,3 +10,8 @@ Installation
 ```
 sh bin/deploy install
 ```
+
+```bash
+composer install
+php bin/render.php
+```

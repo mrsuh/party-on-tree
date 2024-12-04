@@ -1,17 +1,13 @@
-{% extends "AdventureTimeBundle::layout.html.twig" %}
+{% extends "layout.html.twig" %}
 {% block content %}
-    <form action="{{ url('test') }}" method="post">
+    <form action="/test.html" method="post">
         {% for key, question in questions %}
-            {% set next = key %}
-            {% if next !=  question.total %}
-                {% set next = key + 1 %}
-            {% endif %}
-            <div class="test text-center" data-next="{{ next }} " id="{{ key }}" style="display: none; width: 100%">
-                <h3>Question {{ key }} in {{ question.total }}</h3>{{ question.question }}
+            <div class="test text-center question" data-next="{{ key == questions|length ?  key : key + 1 }} " id="{{ key }}" style="display: none; width: 100%">
+                <h3>Question {{ key }} in {{ questions|length }}</h3>{{ question.question }}
 
                 {% for answer in question.answer %}
-                    <div class="form-control center-block btn btn-info" style=" max-width: 300px; margin-top: 10px">
-                        <input type="radio" class="hide" value="{{ answer.id }}" name="radio"/> {{ answer.name }}
+                    <div class="form-control center-block btn btn-info answer" style=" max-width: 300px; margin-top: 10px">
+                        <input type="radio" class="hide" value="{{ answer.id }}" name="radio" data-characters="{{ answer.personage|json_encode }}"/> {{ answer.name }}
                     </div>
                 {% endfor %}
 
@@ -28,18 +24,19 @@
 
 {% block js %}
     <script>
+        
+        let answers = {};
 
         function hideQuestions() {
-            var test = $('.test');
-            test.hide();
+            $('.test').hide();
             $('#1').show();
         }
 
         function checkButtons() {
             $('.next').attr('disabled', true);
 
-            $('.test .form-control').on('click', function () {
-                $('.test:visible .form-control').removeClass('active');
+            $('.test .answer').on('click', function () {
+                $('.test:visible .answer').removeClass('active');
                 $(this).addClass('active');
                 $(this).children('input[type=radio]').prop('checked', true);
                 $('.next').attr('disabled', false);
@@ -47,32 +44,43 @@
         }
 
         checkButtons();
-
-
+        
         function nextQuestion() {
             checkButtons();
 
             $('.next').on('click', function () {
                 $('.next').attr('disabled', true);
-                var next = $('.test:visible').data('next');
-                var id = $('.test:visible').attr('id');
-                getAnswer(id);
+                let next = $('.test:visible').data('next');
+                let characters = $('.test:visible input:checked').data('characters');
+                characters.forEach(function(character) {
+                    if(!(character in answers)) {
+                        answers[character] = 0;
+                    }
+                    answers[character] = answers[character] + 1;
+                })
+                let id = $('.test:visible').attr('id');
 
-                if (parseInt(next) == parseInt(id)) {
-                    $('input[type="submit"]').click();
-                } else {
-                    $('#' + id).hide();
-                    $('#' + next).show();
+                if (parseInt(next) === parseInt(id)) {
+                    let result = '';
+                    let resultCount = 0;
+                    for (let character in answers) {
+                        if (!answers.hasOwnProperty(character)){
+                            continue;  
+                        }
+                        
+                        let count = answers[character];
+                        if(count > resultCount) {
+                            resultCount = count; 
+                            result = character;
+                        }
+                    }
+                    
+                    return window.window.location.href = '/characters/' + result + '.html';
                 }
+
+                $('#' + id).hide();
+                $('#' + next).show();
             })
-        }
-
-        function getAnswer(id) {
-            addHiddenInput($('#' + id + ' input:checked').val());
-        }
-
-        function addHiddenInput(answer) {
-            $('#answer').append('<input type="hidden" name="answer[' + answer + ']" value="' + answer + '"/>');
         }
 
         hideQuestions();

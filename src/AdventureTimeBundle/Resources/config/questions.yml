@@ -98,7 +98,7 @@ parameters:
                         3: Marceline
                         4: Ice_King
                         5: Cosmic_Owl
-                        5: Prismo
+                        6: Prismo
                 4:
                     name: около 30 лет
                     personage:
@@ -245,8 +245,8 @@ parameters:
                         10: Party_God
                         11: Party_Pat
                         12: Prismo
-                        12: Billy
-                        13: Starchy
+                        13: Billy
+                        14: Starchy
                 2:
                     name: Женского
                     personage:
